@@ -1,0 +1,36 @@
+[
+  {
+    "date": "17.09.2019",
+    "time": "18:55",
+    "currency": "EU",
+    "pay method": "EC card",
+    "shop's name": "Karstadt Sports GmbH",
+    "address": {
+      "country": "Germany",
+      "city/town": "Münster",
+      "index": "48143",
+      "street": "Stubengasse",
+      "house number": 25   
+    },
+    "buy": [
+      { 
+        "name": "He-Shorty Classic Enduran",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 33
+      },
+      {
+        "name": "Kinder Drive 3, 70 Blue",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 9.95
+      },
+      { 
+        "name": "HAV. SLIDE BRASIL, BLUE/W",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 14.99
+      }      
+    ]
+  }
+]

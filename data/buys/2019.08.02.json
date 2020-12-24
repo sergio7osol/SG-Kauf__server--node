@@ -1,0 +1,232 @@
+[
+  {
+    "date": "02.08.2019",
+    "time": "13:57",
+    "currency": "EU",
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg",
+      "index": "22307",
+      "street": "Fuhlsbuettler Str.",
+      "house number": 387      
+    },
+    "buy": [
+      { 
+        "name": "CAMEMBERT 45%",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      { 
+        "name": "HEIDELBEEREN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.99
+      },
+      { 
+        "name": "ROMA PUDDING",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.35
+      }
+    ]
+  },
+  {
+    "date": "02.08.2019",
+    "time": "16:52",
+    "currency": "EU",
+    "country": "Germany",
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "address": {
+      "city/town": "Hamburg. Lokstedt",
+      "index": "22529",
+      "street": "Troplowitzstraße",
+      "house number": 8
+    },
+    "buy": [
+      { 
+        "name": "HAEH.UNTERKEULEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.78
+      },
+      {
+        "name": "LEICHTSCHINKEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.71
+      },
+      { 
+        "name": "GOUDA JUNG",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      {
+        "name": "POTATO DUNKEL",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "KUERBISKERNBR",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.35
+      },
+      {
+        "name": "VITAL UND FIT",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.29
+      },
+      {
+        "name": "BANANE",
+        "weight/amount": 1.068,
+        "measure": "kg",
+        "price": 0.99
+      },
+      {
+        "name": "KIRSCHE",
+        "weight/amount": 0.548,
+        "measure": "kg",
+        "price": 4.40
+      },
+      {
+        "name": "OBST/GEMUESE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "WEIDEMILCH 3.8%",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.89
+      },
+      {
+        "name": "FARFALLE AL BRO.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "FUSILLI TRICOLOR",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "GRAFS.GOLDSAFT",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.89
+      },
+      {
+        "name": "BELMANDEL CR.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      {
+        "name": "TOBLERONE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.59
+      },
+      {
+        "name": "MILCHBAEREN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "XXXL MARSHMALLON",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.79
+      },
+      {
+        "name": "SOFTCAKE VM",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.89
+      },
+      {
+        "name": "ORANGE CAKE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "PRINZENROLLE VK",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.39
+      },
+      {
+        "name": "HONIGWAFFEL",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 1.89
+      },
+      {
+        "name": "KNUSPERWAFFELN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      {
+        "name": "MOENCHSH.KELLERB",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.89
+      },
+      {
+        "name": "PFAND",
+        "weight/amount": 3,
+        "measure": "piece",
+        "price": 0.15
+      },
+      {
+        "name": "MINERALLWASSER",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.69
+      },
+      {
+        "name": "REWE MIWA STILL",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.33
+      },
+      {
+        "name": "PFAND",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.25
+      },
+      {
+        "name": "INSTANT GOLD",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 3.59
+      },
+      {
+        "name": "LEERGUT EINWEG",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": -0.25
+      },
+      {
+        "name": "LEERG. MW V. ST",
+        "weight/amount": 3,
+        "measure": "piece",
+        "price": -0.15
+      }
+    ]
+  }
+]

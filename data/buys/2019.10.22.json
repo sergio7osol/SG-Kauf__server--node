@@ -1,0 +1,103 @@
+[
+  {
+    "date": "22.10.2019",
+    "time": "22:10",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg. Lokstedt",
+      "index": "22529",
+      "street": "Troplowitzstraße",
+      "house number": 8
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      { 
+        "name": "RD-HACKFLEISCH",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 3.98
+      },
+      {
+        "name": "HAE.BRUSTFILET",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 3.94
+      },
+      {
+        "name": "M.LIEBL. FORELL",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.79
+      },
+      {
+        "name": "KR.BUTTERBAGUETT",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "KNOBLAUCHBAGUETT",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "PFLAUME",
+        "weight/amount": 0.350,
+        "measure": "kg",
+        "price": 3.99
+      },
+      {
+        "name": "GRANATAPFEL",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "KR. PETERSILIE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "SPEISEQUARK MAG.",
+        "weight/amount": 3,
+        "measure": "piece",
+        "price": 0.69
+      },
+      {
+        "name": "FUSILLI NO.98",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.59
+      },
+      {
+        "name": "ACADEMIA FUSILLI",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      {
+        "name": "SALATKRAEUTER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "GEROLST.NATURELL",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.69
+      },
+      {
+        "name": "PFAND",
+        "for": "GEROLST.NATURELL",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.15
+      }
+    ]
+  }
+]

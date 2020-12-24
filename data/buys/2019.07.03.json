@@ -1,0 +1,48 @@
+[
+  {
+    "date": "03.07.2019",
+    "time": "00:00",
+    "currency": "EU",
+    "country": "Germany",
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      {
+        "name": "ROSENBROETC.HELL",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.39,
+        "total prise": 0.39
+      },
+      {
+        "name": "WELTMEISTERBROE.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.29,
+        "total prise": 0.29
+      },
+      {
+        "name": "ZWIEBEL BRAVOS",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99,
+        "total prise": 1.99
+      },
+      {
+        "name": "PICK * MIX GEMUESE",
+        "description": "Tomaten",
+        "weight/amount": 0.436,
+        "measure": "kg",
+        "price": 9.90,
+        "total prise": 4.32
+      },
+      {
+        "name": "COLLAGE HIMBEERE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.09,
+        "total prise": 1.09
+      }
+    ]
+  }
+]

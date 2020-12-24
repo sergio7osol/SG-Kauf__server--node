@@ -1,0 +1,36 @@
+[
+  {
+    "date": "26.10.2019",
+    "time": "20:43",
+    "currency": "RU",
+    "address": {
+      "country": "Russia",
+      "city/town": "Moscow",
+      "index": "105187",
+      "street": "Измайловское шоссе",
+      "house number": 71
+    },
+    "pay method": "Cash",
+    "shop's name": "Кофейня Шоколадница",
+    "buy": [
+      { 
+        "name": "Шанхайский цыпленок",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 290
+      },
+      { 
+        "name": "Тори&Киноко Соба",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 320
+      },
+      { 
+        "name": "Мохито б/а",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 275
+      }
+    ]
+  }
+]

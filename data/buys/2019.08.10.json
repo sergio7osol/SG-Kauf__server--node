@@ -1,0 +1,139 @@
+[
+  {
+    "date": "10.08.2019",
+    "time": "19:24",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg. Lokstedt",
+      "index": "22529",
+      "street": "Troplowitzstraße",
+      "house number": 8
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      { 
+        "name": "RD-HACKFLEISCH",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 3.98
+      },
+      {
+        "name": "PU-INNNFILET",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 4.40
+      },
+      { 
+        "name": "ROSTBRANWURST",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.59
+      },
+      {
+        "name": "GOUDA JUNG",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      {
+        "name": "MOZARELLA",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      {
+        "name": "POTATO KOERNER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.69
+      },
+      {
+        "name": "EDLE MATUES",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.69
+      },
+      {
+        "name": "KNOBLAUCHBAGUETT",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "KR.BUTTERBAGUETT",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "MILD + WURZIG",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      {
+        "name": "PFLAUME",
+        "weight/amount": 0.380,
+        "measure": "kg",
+        "price": 2.99
+      },
+      {
+        "name": "APRIKOSE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.49
+      },
+      {
+        "name": "KAROTTE BIO",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.59
+      },
+      { 
+        "name": "RADIESCHEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.59
+      },
+      { 
+        "name": "BODENHALTUNG M",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      {
+        "name": "SPEISEQUARK MAG.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.39
+      },
+      { 
+        "name": "LUFLEE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.75
+      },
+      { 
+        "name": "COLLAGE HIMBEERE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.75
+      },
+      { 
+        "name": "MINERALWASSER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.69
+      },
+      { 
+        "name": "PFAND",
+        "for": "MINERALWASSER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.15
+      }
+    ]
+  }
+]

@@ -1,0 +1,169 @@
+[
+  {
+    "date": "23.11.2019",
+    "time": "22:02",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg. Winterhude",
+      "index": "22301",
+      "street": "Dorotheenstr.",
+      "house number": "116-122" 
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE center. Stanislawski&Laas GmbH&Co. oHG",
+    "buy": [
+      { 
+        "name": "ROSTBRATWURST",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.59
+      },
+      {
+        "name": "LAUGENBREZEL",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.49
+      },
+      { 
+        "name": "CRACKERS TOM",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.49
+      },
+      {
+        "name": "HIMBEERE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.49
+      },
+      {
+        "name": "SONNENBLUMENKER.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.49
+      },
+      {
+        "name": "KONDENSMILCH",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      {
+        "name": "SPAGHETTONI NO.7",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.59
+      },
+      {
+        "name": "BUCHWEIZEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 3.49
+      },
+      {
+        "name": "ITAL.KRAEUTER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 3.79
+      },
+      {
+        "name": "OLIVEN SW. TROCK",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.79
+      },
+      {
+        "name": "RIGA SPROTTEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.49
+      },
+      { 
+        "name": "BISC.FOR CHEESE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.99
+      },
+      {
+        "name": "PESTAZIEN GESALZ",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 3.19
+      },
+      { 
+        "name": "KAKAO MOUSSE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.19
+      },
+      { 
+        "name": "HERRENSCHOKOLADE",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 1.29
+      },
+      { 
+        "name": "PRJANIKI KARAMEL",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      { 
+        "name": "HAFERGEB. ROSINE",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 2.49
+      },
+      { 
+        "name": "COV.KRINGELGEBAE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.29
+      },
+      { 
+        "name": "LUKUM M. P&GA",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 3.99
+      },
+      { 
+        "name": "CRANBERRY COOKIE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      { 
+        "name": "KNUSPERWAFFELN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      { 
+        "name": "CS MANGO-MARAC.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.89
+      },
+      { 
+        "name": "BIRKENSAFT",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.49
+      },
+      { 
+        "name": "BIRKENSAFT",
+        "description": "with mint",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.49
+      },
+      { 
+        "name": "LUXUS TOILET.PAP",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.59
+      }      
+    ]
+  }
+]

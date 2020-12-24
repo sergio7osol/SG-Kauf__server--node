@@ -1,0 +1,54 @@
+[
+  {
+    "date": "27.10.2019",
+    "time": "19:28",
+    "currency": "RU",
+    "address": {
+      "country": "Russia",
+      "city/town": "Moscow",
+      "index": "105064",
+      "street": "Земляной вал",
+      "house number": 33  
+    },
+    "pay method": "Cash",
+    "shop's name": "Теремок-Инвест",
+    "buy": [
+      { 
+        "name": "Буженина в начинку",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 114.67
+      },
+      { 
+        "name": "Пюре картофельное гарнир",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 97.33
+      },
+      { 
+        "name": "Салат Витаминчик с орешками",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 171
+      },
+      { 
+        "name": "Лапша куриная с фрикадельками",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 125.87
+      },
+      { 
+        "name": "Гречка с томленой куриной грудкой",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 145.77
+      },
+      { 
+        "name": "Узвар боярышник 0.2 л",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 37.36
+      }
+    ]
+  }
+]

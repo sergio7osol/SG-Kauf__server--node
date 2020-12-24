@@ -1,0 +1,135 @@
+[
+  {
+    "date": "21.11.2019",
+    "time": "21:15",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg. Lokstedt",
+      "index": "22529",
+      "street": "Troplowitzstraße",
+      "house number": 8
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      { 
+        "name": "RINDER HAMBURGER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.49
+      },
+      { 
+        "name": "RD-HACKFLEISCH",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.98
+      },
+      { 
+        "name": "HAEH.UNTERKEULEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 3.13
+      },
+      {
+        "name": "HAE.BRUSTFILET",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 6.13
+      },
+      {
+        "name": "MAKRELE GANZ",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.29
+      },
+      {
+        "name": "KR.BUTTERBAGUETT",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "KNOBLAUCHBAGUETT",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "PFLAUMEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.29
+      },
+      {
+        "name": "GRANATAPFEL BIO",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      {
+        "name": "KR. PETERSILIE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "EIER FH RES S-XL",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.69
+      },
+      {
+        "name": "SPEISEQUARK MAG.",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.69
+      },
+      {
+        "name": "ACADEMIA FUSILLI",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      { 
+        "name": "KERNIGE FLOCKEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.39
+      },
+      { 
+        "name": "SNICKERS 6ER PAC",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      { 
+        "name": "MINERALWASSER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.69
+      },
+      { 
+        "name": "PFAND",
+        "for": "MINERALWASSER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.15
+      },
+      { 
+        "name": "LEERGUT EINWEG",
+        "for": "MINERALWASSER",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": -0.25
+      },
+      { 
+        "name": "LEERG. MW V. ST",
+        "for": "MINERALWASSER",
+        "weight/amount": 23,
+        "measure": "piece",
+        "price": -0.15
+      }
+    ]
+  }
+]

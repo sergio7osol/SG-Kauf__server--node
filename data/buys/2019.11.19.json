@@ -1,0 +1,36 @@
+[
+  {
+    "date": "19.11.2019",
+    "time": "12:36",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg",
+      "index": "22307",
+      "street": "Fuhlsbuettler Str.",
+      "house number": 387      
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      { 
+        "name": "SALATBAR GROSS",
+        "weight/amount": 0.154,
+        "measure": "kg",
+        "price": 11.90
+      },
+      { 
+        "name": "KIRSCHTASCHE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.39
+      }, 
+      { 
+        "name": "SNICKERS 2x40G",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      }
+    ]
+  }
+]

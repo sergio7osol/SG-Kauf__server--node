@@ -1,0 +1,22 @@
+{
+  "name": "sg-kauf--backend-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "SVO",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js -e js, hbs"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "hbs": "^4.0.4",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

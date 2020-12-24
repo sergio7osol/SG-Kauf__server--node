@@ -1,0 +1,40 @@
+[
+  {
+    "date": "16.07.2019",
+    "time": "20:36",
+    "currency": "EU",
+    "country": "Germany",
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      { 
+        "name": "PU-GESCHNETZELTE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 3.99,
+        "total prise": 3.99
+      },
+      {
+        "name": "SCHWARZW. SCHINK",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99,
+        "total prise": 1.99
+      },
+      {
+        "name": "ROSTBRATWURST",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.59,
+        "total prise": 2.59
+      },
+      {
+        "name": "JA! EMMENTALER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.59,
+        "total prise": 2.59
+      }
+    ]
+  }
+]

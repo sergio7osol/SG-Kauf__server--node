@@ -1,0 +1,40 @@
+[
+  {
+    "date": "02.07.2019",
+    "time": "00:00",
+    "currency": "EU",
+    "country": "Germany",
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      { 
+        "name": "PICK * MIX GEMUESE (TOMATEN)",
+        "weight/amount": 0.634,
+        "measure": "kg",
+        "price": 9.90,
+        "total prise": 6.28
+      },
+      {
+        "name": "SALATGURKE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.49,
+        "total prise": 0.49
+      },
+      {
+        "name": "KR. PETERSILIE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99,
+        "total prise": 0.99
+      },
+      {
+        "name": "KREUTER DILL NI",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99,
+        "total prise": 0.99
+      }
+    ]
+  }
+]

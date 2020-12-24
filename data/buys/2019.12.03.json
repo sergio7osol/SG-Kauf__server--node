@@ -1,0 +1,36 @@
+[
+  {
+    "date": "03.12.2019",
+    "time": "12:32",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg",
+      "index": "22307",
+      "street": "Fuhlsbuettler Str.",
+      "house number": 387      
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      {
+        "name": "SPEISEQUARK MAG.",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.69
+      },
+      { 
+        "name": "ACADEMIA FUSILLI",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      }, 
+      { 
+        "name": "KERNIGE FLOCKEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      }
+    ]
+  }
+]

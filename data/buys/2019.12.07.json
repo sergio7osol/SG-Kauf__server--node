@@ -1,0 +1,166 @@
+[
+  {
+    "date": "07.12.2019",
+    "time": "21:30",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg. Winterhude",
+      "index": "22301",
+      "street": "Dorotheenstr.",
+      "house number": "116-122" 
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE center. Stanislawski&Laas GmbH&Co. oHG",
+    "buy": [
+      { 
+        "name": "HACKFLEISCH",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.22
+      },
+      { 
+        "name": "ROSTBRATWURST",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.59
+      },
+      {
+        "name": "MINUS L MOZZAR",
+        "description": "Mozzarella",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.79
+      },
+      {
+        "name": "KNOBLAUCHBAGUETT",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "KR.BUTTERBAGUETT",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "WALNUSSKERNE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 10.99
+      },
+      { 
+        "name": "BIO EIER KL. M-L",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.79
+      },
+      {
+        "name": "IRISCHE BUTTER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.49
+      },
+      { 
+        "name": "RIEGEL SCHOKO",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.79
+      },
+      {
+        "name": "KILKA SPROTTEN",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 1.29
+      },
+      { 
+        "name": "MARZIPAN APPLE B",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 2.50
+      },
+      {
+        "name": "MEISTER SELECT.",
+        "description": "Collection of sweets for Christmas.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 19
+      },
+      { 
+        "name": "HAFERGEB. ROSINE",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 2.49
+      },
+      { 
+        "name": "LUKUM M. P&GA",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 3.99
+      },
+      { 
+        "name": "KNUSPERWAFFELN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      { 
+        "name": "GEROLSTEIN. SPRUD",
+        "description": "Minerallwasser",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.99
+      },
+      { 
+        "name": "PFAND",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.25
+      },
+      { 
+        "name": "CS MANGO-MARAC.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.89
+      },
+      { 
+        "name": "BIRKENSAFT",
+        "description": "with mint",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.49
+      },
+      { 
+        "name": "ELMEX ZAHNP.PROF",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 4.99
+      },
+      { 
+        "name": "DR.BEST ZB VIBRA",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 4.99
+      },
+      { 
+        "name": "TEMPO FEUCHT NF",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      { 
+        "name": "ZEWA W&W SRARB.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.49
+      },
+      { 
+        "name": "TASCHE PERMANENT",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      }      
+    ]
+  }
+]

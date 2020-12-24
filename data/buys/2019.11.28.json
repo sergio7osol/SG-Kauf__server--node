@@ -1,0 +1,133 @@
+[
+  {
+    "date": "28.11.2019",
+    "time": "21:03",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg. Lokstedt",
+      "index": "22529",
+      "street": "Troplowitzstraße",
+      "house number": 8
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      { 
+        "name": "HACKFLEISCH",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 3.74
+      },
+      {
+        "name": "HAE.BRUSTFILET",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 5.80
+      },
+      { 
+        "name": "HAEH.UNTERKEULEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 4.49
+      },
+      {
+        "name": "MAKRELE GANZ",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.29
+      },
+      {
+        "name": "KNOBLAUCHBAGUETT",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "KR.BUTTERBAGUETT",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "GRANATAPFEL",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.49
+      },
+      {
+        "name": "KART.FESTK.DICK",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      {
+        "name": "CHERRYROMATOMATE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.55
+      },
+      {
+        "name": "KR. PETERSILIE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "EIER FREIL.WEISS",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      { 
+        "name": "KALINKA KEFIR",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.89
+      },
+      {
+        "name": "SPEISEQUARK MAG.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.69
+      },
+      { 
+        "name": "LUFLEE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.09
+      },
+      { 
+        "name": "MINERALWASSER",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.69
+      },
+      { 
+        "name": "PFAND",
+        "for": "MINERALWASSER",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": 0.15
+      },
+      { 
+        "name": "PALM.SEIFE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.45
+      },
+      { 
+        "name": "PALM.SEIFE W",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.45
+      },
+      { 
+        "name": "TASCHE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.00
+      }      
+    ]
+  }
+]

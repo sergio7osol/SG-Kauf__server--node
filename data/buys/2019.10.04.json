@@ -1,0 +1,66 @@
+[
+  {
+    "date": "04.10.2019",
+    "time": "14:12",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg",
+      "index": "22307",
+      "street": "Fuhlsbuettler Str.",
+      "house number": 387      
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      { 
+        "name": "KRAEUTER DILL",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "KR. PETERSILIE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "SPEISEQUARK MAG.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.69
+      },
+      {
+        "name": "ROMA PUDDING",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.35
+      },
+      { 
+        "name": "KERNIGE FLOCKEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.39
+      },
+      {
+        "name": "DIB BLUETENHONIG",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 6.99
+      },
+      { 
+        "name": "LUFLEE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.59
+      },
+      { 
+        "name": "LEERG. MV V. ST",
+        "weight/amount": 2,
+        "measure": "piece",
+        "price": -0.15
+      }
+    ]
+  }
+]

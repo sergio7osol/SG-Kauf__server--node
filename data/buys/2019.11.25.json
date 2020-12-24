@@ -1,0 +1,30 @@
+[
+  {
+    "date": "25.11.2019",
+    "time": "12:33",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg",
+      "index": "22307",
+      "street": "Fuhlsbuettler Str.",
+      "house number": 387      
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      { 
+        "name": "SALATBAR 1.3L",
+        "weight/amount": 0.278,
+        "measure": "kg",
+        "price": 11.90
+      },
+      { 
+        "name": "ROMA PUDDING",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.35
+      }
+    ]
+  }
+]

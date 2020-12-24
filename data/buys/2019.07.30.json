@@ -1,0 +1,194 @@
+[
+  {
+    "date": "30.07.2019",
+    "time": "20:10",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg. Lokstedt",
+      "index": "22529",
+      "street": "Troplowitzstraße",
+      "house number": 8
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      {
+        "name": "HAE.BRUSTFILET",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 5.36
+      },
+      { 
+        "name": "POTATO KOERNER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.69
+      },
+      { 
+        "name": "GRAVED-LACHS",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 3.89
+      },
+      {
+        "name": "SAHNE-HEFI NATUR",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.35
+      },
+      {
+        "name": "ERDBEERE",
+        "weight/amount": 0.530,
+        "measure": "kg",
+        "price": 5.98
+      },
+      {
+        "name": "KART. FRUEH VF",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 2.99
+      },
+      {
+        "name": "SCHNITTLAUCH",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "BIO FR.MILCH 1.5",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      {
+        "name": "SPEISEQUARK MAG.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.39
+      },
+      {
+        "name": "SPEISEQUARK MAG.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.69
+      },
+      {
+        "name": "ZIMT GEM.",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.59
+      },
+      {
+        "name": "NIC NAC S",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.89
+      },
+      {
+        "name": "TOBLERONE",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.59
+      },
+      { 
+        "name": "FISH.FR.W.CHERRY",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      { 
+        "name": "BUBBLE TAPES",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.29
+      },
+      { 
+        "name": "SPEARMINT",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.85
+      },
+      { 
+        "name": "JOYFILLS",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.59
+      },
+      { 
+        "name": "DUCKSTEIN ORIGIN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 1.99
+      },
+      { 
+        "name": "PFAND 0.08 EUR",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.08
+      },
+      { 
+        "name": "FLENSBURGER PILS",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.89
+      },
+      { 
+        "name": "PFAND",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.25
+      },
+      { 
+        "name": "MINERALWASSER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.69
+      },
+      { 
+        "name": "PFAND 0.15 EUR",
+        "for": "MINERALWASSER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.15
+      },
+      { 
+        "name": "GEROLST.NATURELL",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.69
+      },
+      { 
+        "name": "PFAND 0.15 EUR",
+        "for": "GEROLST.NATURELL",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.15
+      },
+      { 
+        "name": "ECO SPUELM. DUFT",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      { 
+        "name": "OBST/GEMUESENETZ",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      { 
+        "name": "R.AM. 25-500E",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 250
+      },
+      { 
+        "name": "TOPFREINIGER",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.35
+      }
+    ]
+  }
+]

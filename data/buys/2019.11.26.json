@@ -1,0 +1,36 @@
+[
+  {
+    "date": "26.11.2019",
+    "time": "13:36",
+    "currency": "EU",
+    "address": {
+      "country": "Germany",
+      "city/town": "Hamburg",
+      "index": "22307",
+      "street": "Fuhlsbuettler Str.",
+      "house number": 387      
+    },
+    "pay method": "EC card",
+    "shop's name": "REWE",
+    "buy": [
+      { 
+        "name": "SALATBAR 1.3L",
+        "weight/amount": 0.286,
+        "measure": "kg",
+        "price": 11.90
+      },
+      { 
+        "name": "KERNIGE FLOCKEN",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 0.99
+      },
+      { 
+        "name": "DIE BLUETENHONIG",
+        "weight/amount": 1,
+        "measure": "piece",
+        "price": 6.99
+      }
+    ]
+  }
+]
