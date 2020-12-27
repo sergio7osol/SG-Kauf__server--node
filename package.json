@@ -13,10 +13,14 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "hbs": "^4.0.4",
+    "lodash": "^4.17.20",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "request-promise": "^4.2.4",
+    "validator": "^13.5.2",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
+    "chalk": "^4.1.0",
     "nodemon": "^2.0.2"
   }
 }
