@@ -13,14 +13,63 @@ function readReleaseTile(releaseDate) {
     const releases_arr = JSON.parse(releases_str);
     const release = _find(releases_arr, release => release.date === releaseDate);
 
-    console.log("release.title>> ", release.title);
-
     return release.title;
 }
 
-function addBuy(buy) {
-    const filePath = BUY_DATA_DIR + buy.date + '.json';
-    const time = buy.time;
+function addBuy(buyOptions) {
+    // provided values
+    const date = buyOptions.date;
+    const time = buyOptions.time;
+    // default values
+    let currency = buyOptions.currency;
+    let country = buyOptions.country;
+    let payMethod = buyOptions['pay method'];
+    let shopsName = buyOptions['shop\'s name'];
+    let resultBuy = null;
+    const filePath = BUY_DATA_DIR + date + '.json';
+    
+    // provided values -> green color; 
+    // default values -> yellow color
+    console.log('Date: ', chalk.green(date));
+    console.log('Time: ', chalk.green(time));
+
+    if (currency) {
+        console.log('Currency: ', chalk.green(currency));
+    } else {
+        currency = 'EU';
+        console.log('Currency: ', chalk.yellow(currency));
+    }
+
+    if (country) {
+        console.log('Country: ', chalk.green(country));
+    } else {
+        country = 'Germany';
+        console.log('Country: ', chalk.green(chalk.yellow(country)));
+    }
+
+    if (payMethod) {
+        console.log('Pay method: ', chalk.green(chalk.green(payMethod)));
+    } else {
+        payMethod = 'EC card';
+        console.log('Pay method: ', chalk.green(chalk.yellow(payMethod)));
+    }
+
+    if (shopsName) {
+        console.log('Shop\'s name: ', chalk.green(chalk.green(shopsName)));
+    } else {
+        shopsName = 'REWE';
+        console.log('Shop\'s name: ', chalk.green(chalk.yellow(shopsName)));
+    }
+
+    resultBuy = {
+        date,
+        time,
+        currency,
+        country,
+        payMethod,
+        shopsName
+    };
+
     let fileContentsRaw = null;
     let buys = null;
     let resultBuys = null;
@@ -29,32 +78,32 @@ function addBuy(buy) {
 
     try {
         fileContentsRaw = fs.readFileSync(filePath, 'utf8');
-        console.log('fileContents try: ', fileContentsRaw);
     } catch (err) {
         console.warn(chalk.hex("#ee7733")('No such file in the folder. Create default content for a new one.'));
         fileContentsRaw = '[]';
     }
     
     buys = JSON.parse(fileContentsRaw);
-
+    
+    // check whether the new buy is unique
     if (buys.length) {
         // searching for the unique buy - same date, same time
         existingBuy = find(buys, function(props) { 
-            if (props.time === buy.time) { 
+            if (props.time === time) { 
                 return true; 
             } 
         });
 
         if (existingBuy) {
-            console.warn(chalk.hex("#ee7733")(`The buy of ${chalk.hex("#bb99aa")(buy.date)} at ${chalk.hex("#bb99aa")(buy.time)} already exists. Return.`));
+            console.warn(chalk.hex("#ee7733")(`The buy of ${chalk.hex("#bb99aa")(date)} at ${chalk.hex("#bb99aa")(time)} already exists. Return.`));
             return false;
         }
-    } else {
-        buy.date = buy.date.split('.').reverse().join('.');
-        buys.push(buy);
-        resultBuys = JSON.stringify(buys);
-        fs.writeFileSync(filePath, resultBuys);
-    }
+    } 
+ 
+    resultBuy.date = resultBuy.date.split('.').reverse().join('.');
+    buys.push(resultBuy);
+    resultBuys = JSON.stringify(buys);
+    fs.writeFileSync(filePath, resultBuys);
 }
 
 function addProducts(date, time, products) {
@@ -64,6 +113,11 @@ function addProducts(date, time, products) {
     let resultBuys = null;
     let existingBuy = null;
     let existingProducts = null;
+
+    if (!products.length) {
+        console.warn(chalk.hex("#ee7733")("No products provided. Return."));
+        return;
+    }
 
     try {
         fileContentsRaw = fs.readFileSync(filePath, 'utf8');
@@ -122,6 +176,7 @@ function addProducts(date, time, products) {
             // provided values -> green color; 
             console.log('Date: ', chalk.green(date));
             console.log('Time: ', chalk.green(time));
+            console.log('Products added:');
             products.map((v, i) => console.log(i+1, ' Name: ', chalk.green(v.name)));
         }
     } else {
@@ -129,7 +184,35 @@ function addProducts(date, time, products) {
     }
 }
 
+function listAllDates() { // TODO: implement time range
+    let dateFileNames = null;
+    let resultDates = null;
+    // console.warn(chalk.hex("#ee7733")(`The buy of ${chalk.hex("#bb99aa")(date)} at ${chalk.hex("#bb99aa")(time)} is not found. Return.`));
+
+    try {
+        dateFileNames = fs.readdirSync(BUY_DATA_DIR); //.filter(file => statSync(path.join(baseFolder, file)).isDirectory());
+
+        debugger
+        
+        resultDates = dateFileNames.forEach(fileName => {
+            const name = fileName.slice(0, -5).split('.').reverse().join('.'); // TODO: improve
+            console.log(chalk.hex("#ee7733")(name));
+        });
+
+        return resultDates;
+    } catch (err) {
+        console.warn(chalk.hex("#ee7733")('No files in the folder. Return.'));
+        console.error('ERROR: ', err);
+        return;
+    }
+
+    // buys = JSON.parse(fileContentsRaw);
+    // console.log('buys: ', buys);
+
+}
+
 module.exports = {
     addBuy, 
-    addProducts
+    addProducts,
+    listAllDates
 };

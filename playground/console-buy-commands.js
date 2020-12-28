@@ -2,10 +2,11 @@ const fs = require('fs');
 const chalk = require('chalk');
 const yargs = require('yargs');
 const serverConfigJSON = require('./server-project.config.json');
-const { addBuy, addProducts } = require('./utils');
+const { addBuy, addProducts, listAllDates } = require('./utils');
 
 const BUY_DATA_DIR = __dirname + serverConfigJSON.buyDataDir;
 
+// add a buy
 yargs.command({
     command: 'add-buy',
     describe: 'Adding a new buy',
@@ -43,65 +44,12 @@ yargs.command({
             type: 'string' // enum
         }
     },
-    handler: function(argv) {
-        // provided values
-        const date = argv.date;
-        const time = argv.time;
-        // default values
-        let currency = argv.currency;
-        let country = argv.country;
-        let payMethod = argv['pay method'];
-        let shopsName = argv['shop\'s name'];
-        let buyForSave = null;
-        let buyForSaveJSON = null;
-        let resultForSaveJSON = null;
-        
-        // provided values -> green color; 
-        // default values -> yellow color
-        console.log('Date: ', chalk.green(date));
-        console.log('Time: ', chalk.green(argv.time));
-
-        if (currency) {
-            console.log('Currency: ', chalk.green(currency));
-        } else {
-            currency = 'EU';
-            console.log('Currency: ', chalk.yellow(currency));
-        }
-
-        if (country) {
-            console.log('Country: ', chalk.green(country));
-        } else {
-            country = 'Germany';
-            console.log('Country: ', chalk.green(chalk.yellow(country)));
-        }
-
-        if (payMethod) {
-            console.log('Pay method: ', chalk.green(chalk.green(payMethod)));
-        } else {
-            payMethod = 'EC card';
-            console.log('Pay method: ', chalk.green(chalk.yellow(payMethod)));
-        }
-
-        if (shopsName) {
-            console.log('Shop\'s name: ', chalk.green(chalk.green(shopsName)));
-        } else {
-            shopsName = 'REWE';
-            console.log('Shop\'s name: ', chalk.green(chalk.yellow(shopsName)));
-        }
-
-        buyForSave = {
-            date,
-            time,
-            currency,
-            country,
-            'pay method': payMethod,
-            'shop\'s name': shopsName
-        };
-
-        addBuy(buyForSave);
+    handler(argv) {
+        addBuy(argv);
     }
 });
 
+// add products
 yargs.command({
     command: 'add-products',
     describe: 'Adding bought products for a particular buy',
@@ -124,25 +72,20 @@ yargs.command({
             type: 'array'
         }
     },
-    handler: function(argv) {
+    handler(argv) {
         // provided values
         const date = argv.date;
         const time = argv.time;
         const products = argv.products;
         
-        if (products.length) {
-            addProducts(date, time, products);
-        } else {
-            console.warn(chalk.hex("#ee7733")("No products provided. Return."));
-            return;
-        }
+        addProducts(date, time, products);
     }
 });
 
 yargs.command({
     command: 'remove',
     describe: 'Removing a new buy',
-    handler: function() {
+    handler() {
         console.log(chalk.red.bold('Removing a buy...'));
     }
 
@@ -157,13 +100,16 @@ yargs.command({
 
 });
 
+// list all dates
 yargs.command({
-    command: 'list',
-    describe: 'Listing all buys',
-    handler: function() {
-        console.log(chalk.yellow('Listing all buys...'));
+    command: 'list-dates',
+    describe: 'List all buy dates',
+    handler() {
+        listAllDates();
     }
 
 });
 
+// TODO: implement remove dates and products for the date
+// TODO: create saveBuy and loadBuy functions
 yargs.parse();
