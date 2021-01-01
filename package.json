@@ -14,6 +14,7 @@
     "express": "^4.17.1",
     "hbs": "^4.0.4",
     "lodash": "^4.17.20",
+    "postman-request": "^2.88.1-postman.27",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "validator": "^13.5.2",
