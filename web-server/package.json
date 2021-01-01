@@ -1,0 +1,13 @@
+{
+  "name": "web-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1"
+  },
+  "scripts": {
+    "watch": "npx nodemon src/app.js -e js, hbs"
+  }
+}
