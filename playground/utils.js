@@ -5,9 +5,6 @@ const serverConfigJSON = require('./server-project.config.json');
 
 const BUY_DATA_DIR = __dirname + serverConfigJSON.buyDataDir;
 
-function readReleaseFile(release) {
-    return fs.readFileSync(`${RELEASES_DIR}/${release}`, 'utf8')
-}
 function readReleaseTile(releaseDate) {
     const releases_str = fs.readFileSync(ReleasesIndex.PATH, 'utf8');
     const releases_arr = JSON.parse(releases_str);
