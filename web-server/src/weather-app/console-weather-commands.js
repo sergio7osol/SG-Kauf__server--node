@@ -1,7 +1,7 @@
 const fs = require('fs');
 const chalk = require('chalk');
 const yargs = require('yargs');
-const serverConfigJSON = require('../playground/server-project.config.json');
+const serverConfigJSON = require('../server-project.config.json');
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
@@ -19,6 +19,8 @@ yargs.command({
         }
     },
     handler(argv) {
+        console.log(chalk.yellow('/show-weather: console command'));
+
         geocode(argv.address, (error, data) => {
             if (error) {
                 return console.error(chalk.red(error));
