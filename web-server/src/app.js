@@ -2,10 +2,12 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 const chalk = require('chalk');
+const cors = require('cors');
 const serverConfigJSON = require('./server-project.config.json');
-const { addBuy, removeBuy, addProducts, removeProducts, listAllDates } = require('./utils');
+const { saveBuy, removeBuy, addProducts, removeProducts, readDate, listAllDates } = require('./utils');
 
 const port = process.env.PORT || 3000;
+const whitelist = ['http://localhost:8080', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
 
 // Paths for express config
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
@@ -18,6 +20,67 @@ app.set('view engine', 'hbs');
 app.set('views', VIEWS_DIR);
 hbs.registerPartials(PARTIALS_DIR);
 app.use(express.static(PUBLIC_DIR));
+
+app.use(cors({
+    origin: function (origin, callback) {
+        // allow requests with no origin 
+        // (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (whitelist.indexOf(origin) === -1) {
+            var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    }
+}));
+
+app.get('/with-cors', (req, res) => {
+
+    console.log('cors >>', res.body);
+  
+    debugger
+  
+    // const data = JSON.stringify(req);
+    const filePath = path.join(__dirname, '../../data/buys/new.json');
+  
+    const body = req.body;
+  
+    console.log("<create-release req.body>", body);
+  
+    fs.appendFile(filePath, body, (err) => {
+      if (err) {
+        console.log("Unable to append to new.json");
+      }
+    });
+  
+    // const fs.readFileSync();
+  
+    res.json({ msg: 'CORS Works! 🎉' })
+  });
+
+  app.post("/save-day", cors(), (req, res) => {
+
+    const buy = req.body;
+  
+    console.log("<save-buy req.body>", buy);
+    console.log("<save-buy req.body2>", res.body);
+  
+    // try {
+    //     fs.writeFileSync(`${BUYS_DIR}/${buy.date}.json`, buy.info);
+    //     console.log(`The buy day file "${buy.date}" was saved.`);
+    // } catch (err) {
+    //     console.error(err)
+    // }
+  
+    // fs.appendFile("./data/buys.json", buy, (err) => {
+    //     if (err) {
+    //         console.log("Unable to append to notes.json");
+    //     }
+    // });
+  
+    // res.send(buy);
+  });
 
 app.get('', (req, res) => {
     res.render(path.join(VIEWS_DIR, 'index'), {
@@ -38,9 +101,32 @@ app.get('/help/*', (req, res) => {
     });
 });
 
+debugger
+
+
 // API
+// Reading a day:
+app.get('/read-date', ({url, query}, res) => {
+    let statusMsg = null;
+    let responseResult = null;
+    let date = query.date; 
+
+    // TODO: Format: 'DD.MM.YYYY'
+    if (!date) {
+        statusMsg = 'Date must be provided.';
+        console.warn(chalk.yellow(url, ': '), chalk.red(statusMsg));
+
+        return res.send({
+            error: `${url}: ${statusMsg}`
+        });
+    }
+
+    responseResult = readDate(date);
+
+    return res.send(responseResult);    
+});
 // Adding a new buy:
-app.get('/add-buy', ({url, query}, res) => {
+app.get('/save-buy', ({url, query}, res) => {
     let statusMsg = null;
     let responseResult = null;
 
@@ -55,7 +141,7 @@ app.get('/add-buy', ({url, query}, res) => {
         });
     }
 
-    responseResult = addBuy(query);
+    responseResult = saveBuy(query);
 
     return res.send(responseResult);    
 
@@ -160,7 +246,6 @@ app.get('/remove-products', ({url, query}, res) => {
 // List all dates:
 app.get('/list-dates', ({url}, res) => {
     let responseResult = null;
-    
     console.log(chalk.yellow(`${url}: request`));
 
     responseResult = listAllDates();
