@@ -203,17 +203,18 @@ function removeBuy({date, time}) {
             remove(buys, existingBuy);
             
             console.warn(chalk.hex("#ee7733")(`The buy of ${chalk.hex("#bb99aa")(date)} at ${chalk.hex("#bb99aa")(time)} was successfully removed.`));
-            console.log('buys.length: ', buys.length);
+
             if (!buys.length) {
+                console.warn(chalk.hex("#ee7733")(`No buys left for the date ${chalk.hex("#bb99aa")(date)}. Deleting the file ${chalk.hex("#bb99aa")(filePath)} ...`));
                 try {
                     fs.unlinkSync(filePath);
                     console.warn(chalk.hex("#ee7733")(`The file ${chalk.hex("#bb99aa")(filePath)} was successfully deleted.`));
                 } catch (err) {
-                    console.error(err);
+                    console.warn(chalk.hex("#ee7733")(`Error on deleting of file ${filePath}: ${err}`));
 
                     return {
                         success: false,
-                        message: `On deleting of file ${filePath} ${err}`
+                        message: `On deleting of file ${filePath}: ${err}`
                     };
                 }
             } else {
