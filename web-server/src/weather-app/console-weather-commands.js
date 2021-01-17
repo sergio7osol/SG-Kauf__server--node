@@ -36,7 +36,11 @@ yargs.command({
                     return console.error(chalk.red(error));
                 }
         
-                console.log(chalk.yellow(`Current temperature is ${forecastData.temperature}C, but it feels like ${forecastData.feelslike}C. There is a ${forecastData.precip}% chance of rain.`));
+                console.log(chalk.yellow(`Current temperature is ${forecastData.temperature}C`));
+                console.log(chalk.yellow(`it feels like ${forecastData.feelslike}C`));
+                console.log(chalk.yellow(`wind speed is ${forecastData.wind_speed} m/s`));
+                console.log(chalk.yellow(`and humidity of ${forecastData.humidity}%`));
+                console.log(chalk.yellow(`There is a ${forecastData.precip}% chance of rain.`));
             });
         });
     }

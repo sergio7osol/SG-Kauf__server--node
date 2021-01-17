@@ -2,7 +2,7 @@ const chalk = require('chalk');
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
-geocode('Hamburg Grandweg 154', (error, data) => {
+const getForecast = geocode(address, (error, data) => {
     if (error) {
         return console.error(chalk.red(error));
     } 
@@ -21,4 +21,4 @@ geocode('Hamburg Grandweg 154', (error, data) => {
     });
 });
 
-
+export default getForecast;
