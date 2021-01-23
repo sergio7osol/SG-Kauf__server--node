@@ -4,7 +4,7 @@ const hbs = require('hbs');
 const chalk = require('chalk');
 const cors = require('cors');
 const serverConfigJSON = require('./server-project.config.json');
-const { saveBuy, removeBuy, addProducts, removeProducts, readDate, listAllDates } = require('./utils');
+const { saveBuy, removeBuy, saveProduct, removeProducts, readDate, listAllDates } = require('./utils');
 
 const port = process.env.PORT || 3000;
 const whitelist = ['http://localhost:8080', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
@@ -177,18 +177,32 @@ app.get('/remove-buy', ({url, query}, res) => {
 });
 
 // Add products to the buy:
-app.get('/add-products', ({url, query}, res) => {
+app.get('/save-product', ({url, query}, res) => {
     let statusMsg = null;
     let responseResult = null;
 
+    // normalize price and weight to 'number' type:
+    query.price = Number(query.price);
+    query.weightAmount = Number(query.weightAmount);
+    // query.discount = Number(query.discount); // TODO add % parsing
+    query.discount ? query.discount : 0;
+
+    let { date, time, name, price, weightAmount, measure, description, discount } = query;
+
     console.log(chalk.yellow(`${url}: request`));
 
-    console.log('query.date: ', query.date);
-    console.log('query.time: ', query.time);
-    console.log('query.products: ', query.products);
 
-    if (!(query.date && query.time && query.products)) {
-        statusMsg = 'Date, time and products must be provided.';
+    console.log('date: ', date);
+    console.log('time: ', time);
+    console.log('name: ', name);
+    console.log('price: ', price, typeof price);
+    console.log('weightAmount: ', weightAmount, typeof weightAmount);
+    console.log('measure: ', measure);
+    console.log('description: ', description);
+    console.log('discount: ', discount);
+
+    if (!(date && time && name && price && weightAmount && measure && discount)) {
+        statusMsg = 'Date, time and product details must be provided.';
         console.warn(chalk.yellow(url, ': '), chalk.red(statusMsg));
 
         return res.send({
@@ -196,7 +210,9 @@ app.get('/add-products', ({url, query}, res) => {
         });
     }
 
-    responseResult = addProducts(query);;
+        
+
+    responseResult = saveProduct(query);
 
     return res.send(responseResult);    
 

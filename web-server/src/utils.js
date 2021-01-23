@@ -4,6 +4,7 @@ const path = require('path');
 const find = require('lodash/find');
 const remove = require('lodash/remove');
 const serverConfigJSON = require('./server-project.config.json');
+const { type } = require('os');
 
 const BUY_DATA_DIR = path.join(__dirname, '..', serverConfigJSON.buyDataDir);
 
@@ -222,10 +223,12 @@ function removeBuy({date, time}) {
                 fs.writeFileSync(filePath, resultBuys);
             }
             
-            return {
-                success: true,
-                message: `The buy of ${date} at ${time} was successfully removed.`
-            };
+            return buys;
+
+            // return {
+            //     success: true,
+            //     message: `The buy of ${date} at ${time} was successfully removed.`
+            // };
         } else {
             return {
                 success: false,
@@ -240,22 +243,32 @@ function removeBuy({date, time}) {
     };
 }
 
-function addProducts({date, time, products}) {
+function saveProduct({date, time, name, price, weightAmount, measure, description, discount}) {
     const filePath = path.join(BUY_DATA_DIR, date + '.json');
     let fileContentsRaw = null;
     let buys = null;
     let resultBuys = null;
     let existingBuy = null;
     let existingProducts = null;
-    const productsJSON = JSON.parse(products);
-    let productNames = null;
+    let product = null;
 
-    console.log('date: ', date);
-    console.log('time: ', time);
-    console.log('products: ', productsJSON);
-    if (!(date && time && productsJSON && productsJSON.length)) {
-        console.warn(chalk.hex("#ee7733")("Date, time and products must be provided. Return."));
-        return;
+    console.log('name, price: ', name, typeof name, price, typeof price);
+
+    if (!(name && typeof name === 'string')) {
+        throw Error(chalk.red(`Product name should be provided and be of a 'string' type. Program stops.`));
+    }
+    if (!(price && typeof price === 'number')) {
+        throw Error(chalk.red(`Product price should be provided and be of 'number' type. Program stops.`));
+    }
+    if (!(weightAmount && typeof weightAmount === 'number')) {
+        throw Error(chalk.red(`Product weightAmount should be provided and be of a 'number' type. Program stops.`));
+    }
+    if (!((measure === 'kg' || measure === 'piece'))) {
+        throw Error(chalk.red(`Product measure should be provided and be either 'kg' or 'piece' value. Program stops.`));
+    }
+    console.log('discount: ', discount, typeof discount);
+    if (!(typeof discount === 'number' || typeof discount === 'string')) { // TODO parsing %
+        throw Error(chalk.red(`Product discount should be provided and be of 'number' or 'string' type. Program stops.`));
     }
 
     try {
@@ -269,7 +282,7 @@ function addProducts({date, time, products}) {
     
     if (buys.length) {
         // searching for the unique buy - same date, same time
-        existingBuy = find(buys, function(props) { 
+        existingBuy = find(buys,  (props) => { 
             if (props.time === time) { 
                 return true; 
             } 
@@ -281,48 +294,37 @@ function addProducts({date, time, products}) {
         } else {
             existingProducts = existingBuy.products = existingBuy.products || [];
 
-            // products validation:
-            productsJSON.forEach(product => {
-                if (!(product.name && typeof product.name === 'string')) {
-                    throw Error(chalk.red(`Product name should be provided and be of a 'string' type. Program stops.`));
-                }
-                
-                if (!(product['weight/amount'] && typeof product['weight/amount'] === 'number')) {
-                    throw Error(chalk.red(`Product weight/amount should be provided and be of a 'number' type. Program stops.`));
-                }
-                
-                if (!(product.measure && (product.measure === 'kg' || product.measure === 'piece'))) {
-                    throw Error(chalk.red(`Product measure should be provided and be either 'kg' or 'piece' value. Program stops.`));
-                }
-                
-                if (!(product.price && typeof product.price === 'number')) {
-                    throw Error(chalk.red(`Product price should be provided and be of 'number' type. Program stops.`));
-                }
-                
-                // check whether there already is this product
-                if (find(existingProducts, product)) {
-                    throw Error(chalk.red(`Products array already has such a product: ${product.name}. Program stops.`));
-                }
-            });
+            // build a product consisting of corresponding buy values
+            product = {
+                name,
+                price,
+                weightAmount,
+                measure,
+                description,
+                discount
+            };
 
-            existingBuy.products = [].concat(existingProducts, productsJSON); // TODO: improve with validation of every product and add a possibility of choosing array/separat object
+            // check whether there already is this product
+            if (find(existingProducts, product)) {
+                throw Error(chalk.red(`Products array already has such a product: ${product.name}. Program stops.`));
+            }
+
+            existingProducts.push(product); // TODO: improve with validation of every product and add a possibility of choosing array/separate object
             
+            console.log('existingProducts >: ', existingProducts);
+
             resultBuys = JSON.stringify(buys);
 
             fs.writeFileSync(filePath, resultBuys);
 
             // provided values -> green color; 
-            console.log('Date: ', chalk.green(date));
-            console.log('Time: ', chalk.green(time));
-            console.log('Products added:');
-            productsJSON.map((v, i) => console.log(i+1, ' Name: ', chalk.green(v.name)));
-
-            productNames = productsJSON.map((v, i) => v.name).join(', ');
-
-            return {
-                success: true,
-                message: `The the product(-s) - ${productNames} - were successfully added to the buy of ${date} at ${time}.`
-            };
+            console.log('Product added: ', chalk.green(`The the product - ${product.name} - was successfully added to the buy of ${date} at ${time}.`));
+            
+            return existingProducts;
+            // return {
+            //     success: true,
+            //     message: `The the product - ${productJSON.name} - was successfully added to the buy of ${date} at ${time}.`
+            // };
         }
     } else {
         console.warn(chalk.hex("#ee7733")(`No buy entries found. End of function.`));
@@ -490,7 +492,7 @@ function listAllDates() { // TODO: implement time range
 module.exports = {
     saveBuy, 
     removeBuy,
-    addProducts,
+    saveProduct,
     removeProducts,
     readDate,
     listAllDates

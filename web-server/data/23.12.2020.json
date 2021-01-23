@@ -1,1 +1,59 @@
-[{"date":"23.12.2020","time":"11:53","currency":"EUR","country":"Germany","address":{"city":"Hamburg","index":"22307","street":"Fuhlsbuettler Str.","houseNumber":"387"},"payMethod":"EC card","shopName":"REWE","products":[{"name":"Pudra","weightAmount":2,"measure":"piece","price":1.53,"description":"Gesichtpudra","rabatt":"3%"},{"name":"Wassermelone","weightAmount":2,"measure":"piece","price":4.3,"description":"Obst"}]},{"date":"23.12.2020","time":"17:27","currency":"EUR","country":"Germany","address":{"index":"22307","city":"Hamburg","street":"Fuhlsbuettler Str.","houseNumber":"387"},"payMethod":"EC card","shopName":"REWE"},{"date":"23.12.2020","time":"20:00","currency":"EUR","country":"Russia","address":{"index":"22307","city":"Hamburg","street":"Fuhlsbuettler Str.","houseNumber":"387"},"payMethod":"Cash","shopName":"REWE"}]
+[
+    {
+        "date": "23.12.2020",
+        "time": "20:00",
+        "currency": "EUR",
+        "country": "Russia",
+        "address": {
+            "index": "22307",
+            "city": "Saransk",
+            "street": "Fuhlsbuettler Str.",
+            "houseNumber": "387"
+        },
+        "payMethod": "Cash",
+        "shopName": "REWE",
+        "products": []
+    },
+    {
+        "date": "23.12.2020",
+        "time": "17:31",
+        "currency": "EUR",
+        "country": "Russia",
+        "address": {
+            "index": "22307",
+            "city": "Saransk",
+            "street": "Fuhlsbuettler Str.",
+            "houseNumber": "387"
+        },
+        "payMethod": "Cash",
+        "shopName": "REWE",
+        "products": [
+            {
+                "name": "Pflaumenberliner",
+                "weightAmount": 1,
+                "measure": "piece",
+                "price": 1.70
+            },
+            {
+                "name": "Berliner",
+                "weightAmount": 1,
+                "measure": "piece",
+                "price": 1.50
+            },
+            {
+                "name": "Nußschnitte",
+                "weightAmount": 1,
+                "measure": "piece",
+                "price": 2.70
+            },
+            {
+                "name": "Rohlfs Rusti",
+                "weightAmount": 1,
+                "measure": "piece",
+                "price": 3.99,
+                "description": "750g",
+                "discount": "0"
+            }
+        ]
+    }
+]
