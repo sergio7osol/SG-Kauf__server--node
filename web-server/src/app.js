@@ -185,7 +185,7 @@ app.get('/save-product', ({url, query}, res) => {
     query.price = Number(query.price);
     query.weightAmount = Number(query.weightAmount);
     // query.discount = Number(query.discount); // TODO add % parsing
-    query.discount ? query.discount : 0;
+    query.discount = query.discount || 0;
 
     let { date, time, name, price, weightAmount, measure, description, discount } = query;
 
@@ -201,11 +201,12 @@ app.get('/save-product', ({url, query}, res) => {
     console.log('description: ', description);
     console.log('discount: ', discount);
 
-    if (!(date && time && name && price && weightAmount && measure && discount)) {
+    if (!(date && time && name && price && weightAmount && measure && (discount || discount === 0))) {
         statusMsg = 'Date, time and product details must be provided.';
         console.warn(chalk.yellow(url, ': '), chalk.red(statusMsg));
 
         return res.send({
+            success: false,
             error: `${url}: ${statusMsg}`
         });
     }
