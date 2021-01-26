@@ -4,7 +4,7 @@ const hbs = require('hbs');
 const chalk = require('chalk');
 const cors = require('cors');
 const serverConfigJSON = require('./server-project.config.json');
-const { saveBuy, removeBuy, saveProduct, removeProducts, readDate, listAllDates } = require('./utils');
+const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates } = require('./utils');
 
 const port = process.env.PORT || 3000;
 const whitelist = ['http://localhost:8080', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
@@ -57,29 +57,6 @@ app.get('/with-cors', (req, res) => {
     // const fs.readFileSync();
   
     res.json({ msg: 'CORS Works! 🎉' })
-  });
-
-  app.post("/save-day", cors(), (req, res) => {
-
-    const buy = req.body;
-  
-    console.log("<save-buy req.body>", buy);
-    console.log("<save-buy req.body2>", res.body);
-  
-    // try {
-    //     fs.writeFileSync(`${BUYS_DIR}/${buy.date}.json`, buy.info);
-    //     console.log(`The buy day file "${buy.date}" was saved.`);
-    // } catch (err) {
-    //     console.error(err)
-    // }
-  
-    // fs.appendFile("./data/buys.json", buy, (err) => {
-    //     if (err) {
-    //         console.log("Unable to append to notes.json");
-    //     }
-    // });
-  
-    // res.send(buy);
   });
 
 app.get('', (req, res) => {
@@ -176,7 +153,7 @@ app.get('/remove-buy', ({url, query}, res) => {
     return res.send(responseResult);    
 });
 
-// Add products to the buy:
+// Add product to the buy:
 app.get('/save-product', ({url, query}, res) => {
     let statusMsg = null;
     let responseResult = null;
@@ -184,6 +161,7 @@ app.get('/save-product', ({url, query}, res) => {
     // normalize price and weight to 'number' type:
     query.price = Number(query.price);
     query.weightAmount = Number(query.weightAmount);
+
     // query.discount = Number(query.discount); // TODO add % parsing
     query.discount = query.discount || 0;
 
@@ -211,8 +189,6 @@ app.get('/save-product', ({url, query}, res) => {
         });
     }
 
-        
-
     responseResult = saveProduct(query);
 
     return res.send(responseResult);    
@@ -235,19 +211,24 @@ app.get('/save-product', ({url, query}, res) => {
         // type: 'string' // enum
 });
 
-// Remove products from the buy:
-app.get('/remove-products', ({url, query}, res) => {
+// Remove product from the buy:
+app.get('/remove-product', ({url, query}, res) => {
     let statusMsg = null;
     let responseResult = null;
+
+    // normalize price and weight to 'number' type:
+    query.price = Number(query.price);
+    query.weightAmount = Number(query.weightAmount);
+    // query.discount = Number(query.discount); // TODO add % parsing
+    query.discount = query.discount || 0;
 
     console.log(chalk.yellow(`${url}: request`));
 
     console.log('query.date: ', query.date);
     console.log('query.time: ', query.time);
-    console.log('query.products: ', query.products);
 
-    if (!(query.date && query.time && query.products)) {
-        statusMsg = 'Date, time and products must be provided.';
+    if (!(query.date && query.time)) {
+        statusMsg = 'Date, time must be provided.';
         console.warn(chalk.yellow(url, ': '), chalk.red(statusMsg));
 
         return res.send({
@@ -255,9 +236,9 @@ app.get('/remove-products', ({url, query}, res) => {
         });
     }
 
-    responseResult = removeProducts(query);
+    responseResult = removeProduct(query);
 
-    return res.send(responseResult);    
+    return res.send(responseResult);
 });
 
 // List all dates:
