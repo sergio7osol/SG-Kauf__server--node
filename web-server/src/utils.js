@@ -252,8 +252,6 @@ function saveProduct({date, time, name, price, weightAmount, measure, descriptio
     let existingProducts = null;
     let product = null;
 
-    console.log('name, price: ', name, typeof name, price, typeof price);
-
     if (!(name && typeof name === 'string')) {
         throw Error(chalk.red(`Product name should be provided and be of a 'string' type. Program stops.`));
     }
@@ -266,7 +264,6 @@ function saveProduct({date, time, name, price, weightAmount, measure, descriptio
     if (!((measure === 'kg' || measure === 'piece'))) {
         throw Error(chalk.red(`Product measure should be provided and be either 'kg' or 'piece' value. Program stops.`));
     }
-    console.log('discount: ', discount, typeof discount);
     if (!(typeof discount === 'number' || typeof discount === 'string')) { // TODO parsing %
         throw Error(chalk.red(`Product discount should be provided and be of 'number' or 'string' type. Program stops.`));
     }
@@ -331,30 +328,52 @@ function saveProduct({date, time, name, price, weightAmount, measure, descriptio
     }
 }
 
-function removeProducts({date, time, products}) {
+function removeProduct({date, time, name, price, weightAmount, measure, description, discount}) {
     const filePath = path.join(BUY_DATA_DIR, date + '.json');
     let fileContentsRaw = null;
+    let productToRemove = null;
     let buys = null;
     let resultBuys = null;
     let existingBuy = null;
     let existingProducts = null;
-    const productsJSON = JSON.parse(products);
-    let removedProducts = null;
-    let productNames = null;
+    let removedProduct = null;
 
     console.log('date: ', date);
     console.log('time: ', time);
-    console.log('products: ', productsJSON);
-    if (!(date && time && productsJSON && productsJSON.length)) {
-        console.warn(chalk.hex("#ee7733")("Date, time and products must be provided. Return."));
-        return;
+    console.log('name: ', name);
+    console.log('price: ', price);
+    console.log('weightAmount: ', weightAmount);
+    console.log('measure: ', measure);
+    console.log('description: ', description);
+    console.log('discount: ', discount);
+
+    if (!(name && typeof name === 'string')) {
+        throw Error(chalk.red(`Product name should be provided and be of a 'string' type. Program stops.`));
+    }
+    if (!(price && typeof price === 'number')) {
+        throw Error(chalk.red(`Product price should be provided and be of 'number' type. Program stops.`));
+    }
+    if (!(weightAmount && typeof weightAmount === 'number')) {
+        throw Error(chalk.red(`Product weightAmount should be provided and be of a 'number' type. Program stops.`));
+    }
+    if (!((measure === 'kg' || measure === 'piece'))) {
+        throw Error(chalk.red(`Product measure should be provided and be either 'kg' or 'piece' value. Program stops.`));
+    }
+    if (!(typeof discount === 'number' || typeof discount === 'string')) { // TODO parsing %
+        throw Error(chalk.red(`Product discount should be provided and be of 'number' or 'string' type. Program stops.`));
     }
 
     try {
         fileContentsRaw = fs.readFileSync(filePath, 'utf8');
     } catch (err) {
-        console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
-        return;
+        const statusMsg = 'No such file in the folder. Return.';
+
+        console.warn(chalk.hex("#ee7733")(statusMsg));
+
+        return {
+            success: false,
+            error: `${url}: ${statusMsg}`
+        };
     }
 
     buys = JSON.parse(fileContentsRaw);
@@ -373,31 +392,33 @@ function removeProducts({date, time, products}) {
         } else {
             existingProducts = existingBuy.products = existingBuy.products || [];
 
-            // products validation:
-            productsJSON.forEach(product => {
-                if (!(product.name && typeof product.name === 'string')) {
-                    throw Error(chalk.red(`Product name should be provided and be of a 'string' type. Program stops.`));
-                }
-                
-                if (!(product['weight/amount'] && typeof product['weight/amount'] === 'number')) {
-                    throw Error(chalk.red(`Product weight/amount should be provided and be of a 'number' type. Program stops.`));
-                }
-                
-                if (!(product.measure && (product.measure === 'kg' || product.measure === 'piece'))) {
-                    throw Error(chalk.red(`Product measure should be provided and be either 'kg' or 'piece' value. Program stops.`));
-                }
-                
-                if (!(product.price && typeof product.price === 'number')) {
-                    throw Error(chalk.red(`Product price should be provided and be of 'number' type. Program stops.`));
-                }
-                
-                // check whether the buy contains the product
-                if (!find(existingProducts, product)) {
-                    throw Error(chalk.red(`Products array has no such product: ${product.name}. Program stops.`));
-                } else {
-                    removedProducts = remove(existingProducts, product);
-                }
-            });
+            // TODO: add parsing %
+            if (discount === '0') {
+                discount = Number(discount);
+            }
+
+            // construct a product object
+            productToRemove = {
+                name,
+                price, 
+                measure,
+                weightAmount,
+                discount
+            };
+
+            if (description) {
+                productToRemove.description = description;
+            }
+
+            console.log('existingProducts: ', existingProducts);
+            console.log('productToRemove: ', productToRemove);
+
+            // check whether the buy contains the product
+            if (!find(existingProducts, productToRemove)) {
+                throw Error(chalk.red(`Products array has no such product: ${productToRemove.name}. Program stops.`));
+            } else {
+                removedProduct = remove(existingProducts, productToRemove)[0];
+            }
 
             resultBuys = JSON.stringify(buys);
 
@@ -406,15 +427,21 @@ function removeProducts({date, time, products}) {
             // provided values -> green color; 
             console.log('Date: ', chalk.green(date));
             console.log('Time: ', chalk.green(time));
-            console.log('Products removed:');
-            removedProducts.map((v, i) => console.log(i+1, ' Name: ', chalk.green(v.name)));
+            console.log(chalk.green('Product removed: '), 
+                chalk.hex('#ee7733')(removedProduct.name), 
+                chalk.green(', bought for '),
+                chalk.hex('#ee7733')(removedProduct.price, removedProduct.currency),
+                chalk.green(' for '),
+                chalk.hex('#ee7733')(removedProduct.measure),
+                chalk.green(' with '),
+                chalk.hex('#ee7733')(removedProduct.discount),
+                chalk.green(' discount.'));
 
-            productNames = removedProducts.map((v, i) => v.name).join(', ');
-
-            return {
-                success: true,
-                message: `The the product(-s) - ${productNames} - were successfully removed from the buy of ${date} at ${time}.`
-            };
+            return existingProducts;
+            // return {
+            //     success: true,
+            //     message: `The the product - ${removedProduct.name} - were successfully removed from the buy of ${date} at ${time}.`
+            // };
         }
     } else {
         console.warn(chalk.hex("#ee7733")(`No buy entries found. End of function.`));
@@ -493,7 +520,7 @@ module.exports = {
     saveBuy, 
     removeBuy,
     saveProduct,
-    removeProducts,
+    removeProduct,
     readDate,
     listAllDates
 };
