@@ -4,7 +4,7 @@ const hbs = require('hbs');
 const chalk = require('chalk');
 const cors = require('cors');
 const serverConfigJSON = require('./server-project.config.json');
-const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates } = require('./utils');
+const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates, calculateWholeSum } = require('./utils');
 
 const port = process.env.PORT || 3000;
 const whitelist = ['http://localhost:8080', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
@@ -250,6 +250,19 @@ app.get('/list-dates', ({url}, res) => {
 
     return res.send(responseResult);
 });
+
+// Calculate the whole sum of all dates:
+app.get('/get-whole-sum', ({url}, res) => {
+    let responseResult = null;
+    console.log(chalk.yellow(`${url}: request`));
+
+    responseResult = calculateWholeSum();
+
+    console.log('responseResult: ', responseResult, typeof responseResult);
+
+    return res.send({wholeSum: responseResult});
+});
+
 
 app.get('*', (req, res) => {
     res.render('404', {

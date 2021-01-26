@@ -516,11 +516,65 @@ function listAllDates() { // TODO: implement time range
 
 }
 
+function calculateWholeSum() {
+    let dateFileNames = null;
+    let fileContentsRaw = null;
+    let resultSum = 0;
+
+    try {
+        dateFileNames = fs.readdirSync(BUY_DATA_DIR); //.filter(file => statSync(path.join(baseFolder, file)).isDirectory());
+        resultSum = dateFileNames.reduce((dateSum, fileName) => {
+            const filePath = path.join(BUY_DATA_DIR, fileName);
+            console.log('fileName: ', fileName);
+            
+            try {
+                fileContentsRaw = fs.readFileSync(filePath, 'utf8');
+            } catch (err) {
+                console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
+                return;
+            }
+        
+            buys = JSON.parse(fileContentsRaw);
+
+            console.log('buys: ', buys.length);
+
+            dateSum += buys.reduce((buySum, buy) => {
+                const products = buy.products;
+
+                if (products && products.length) {
+                    buySum += products.reduce((productSum, product) => {
+                        const price = product.price * product.weightAmount;
+
+                        productSum += price;
+
+                        return productSum;
+                    }, 0)
+                }
+
+                console.log('buySum: ', buySum);
+                
+                return buySum;
+            }, 0);
+
+            console.log('dateSum: ', dateSum);
+
+            return dateSum;
+        }, 0);
+        
+        return resultSum;
+    } catch (err) {
+        console.warn(chalk.hex("#ee7733")('No files in the folder. Return.'));
+        console.error('ERROR: ', err);
+        return;
+    }
+}
+
 module.exports = {
     saveBuy, 
     removeBuy,
     saveProduct,
     removeProduct,
     readDate,
-    listAllDates
+    listAllDates,
+    calculateWholeSum
 };
