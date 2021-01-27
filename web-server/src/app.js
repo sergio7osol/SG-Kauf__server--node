@@ -157,13 +157,29 @@ app.get('/remove-buy', ({url, query}, res) => {
 app.get('/save-product', ({url, query}, res) => {
     let statusMsg = null;
     let responseResult = null;
+    let discountLastLetter = null;
+    let discountNumber = null;
 
     // normalize price and weight to 'number' type:
     query.price = Number(query.price);
     query.weightAmount = Number(query.weightAmount);
 
     // query.discount = Number(query.discount); // TODO add % parsing
-    query.discount = query.discount || 0;
+    if (!query.discount) {
+        query.discount = 0;
+    } else {
+        discountLastLetter = query.discount.slice(-1);
+
+        if (discountLastLetter !== '%') {
+            discountNumber = Number(query.discount);
+
+            if (typeof discountNumber === 'number') {
+                query.discount = discountNumber;
+            } else {
+                throw Error('"discount" prop should be either string with % or of type "number". Program exits.');
+            }
+        }
+    }
 
     let { date, time, name, price, weightAmount, measure, description, discount } = query;
 
@@ -215,12 +231,29 @@ app.get('/save-product', ({url, query}, res) => {
 app.get('/remove-product', ({url, query}, res) => {
     let statusMsg = null;
     let responseResult = null;
+    let discountLastLetter = null;
+    let discountNumber = null;
 
     // normalize price and weight to 'number' type:
     query.price = Number(query.price);
     query.weightAmount = Number(query.weightAmount);
+
     // query.discount = Number(query.discount); // TODO add % parsing
-    query.discount = query.discount || 0;
+    if (!query.discount) {
+        query.discount = 0;
+    } else {
+        discountLastLetter = query.discount.slice(-1);
+
+        if (discountLastLetter !== '%') {
+            discountNumber = Number(query.discount);
+
+            if (typeof discountNumber === 'number') {
+                query.discount = discountNumber;
+            } else {
+                throw Error('"discount" prop should be either string with % or of type "number". Program exits.');
+            }
+        }
+    }
 
     console.log(chalk.yellow(`${url}: request`));
 
