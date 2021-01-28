@@ -525,6 +525,7 @@ function calculateWholeSum() {
         dateFileNames = fs.readdirSync(BUY_DATA_DIR); //.filter(file => statSync(path.join(baseFolder, file)).isDirectory());
         resultSum = dateFileNames.reduce((dateSum, fileName) => {
             const filePath = path.join(BUY_DATA_DIR, fileName);
+            let  resultBuySum = null;
             console.log('fileName: ', fileName);
             
             try {
@@ -536,31 +537,58 @@ function calculateWholeSum() {
         
             buys = JSON.parse(fileContentsRaw);
 
-            console.log('buys: ', buys.length);
-
-            dateSum += buys.reduce((buySum, buy) => {
+            resultBuySum = buys.reduce((buySum, buy) => {
                 const products = buy.products;
+                let resultProductSum = null;
 
-                if (products && products.length) {
-                    buySum += products.reduce((productSum, product) => {
-                        const price = product.price * product.weightAmount;
+                if (products) {
+                    resultProductSum = products.reduce((productSum, product) => {
+                        const { price, weightAmount, discount } = product;
+                        let lastLetter = null;
+                        let discountNumber = null;
+                        let discountFactor = null;
 
-                        productSum += price;
+                        // calculating cost
+                        productSum.cost += price * weightAmount
+
+                        if (typeof discount === 'string') {
+                            lastLetter = discount.slice(-1);
+
+                            if (lastLetter !== '%') {
+                                throw Error('The last symbol in the discount string value should be %. Program exits.');
+                            }
+
+                            discountNumber = Number(discount.slice(0, -1))
+                            discountFactor = (price / 100) * discountNumber;
+                        } else if (typeof discount === 'number') {
+                            discountFactor = (price * discount / 100);
+                        } else {
+                            throw Error('"discount" product prop should be eigher persentage of type "string" ("%" at the end) or "number". Program exits.');
+                        }
+
+                        // calculating discount
+                        productSum.discount += discountFactor * weightAmount;
 
                         return productSum;
-                    }, 0)
+                    }, { cost: 0, discount: 0 });
+
+                    buySum.cost += resultProductSum.cost;
+                    buySum.discount += resultProductSum.discount;
                 }
 
-                console.log('buySum: ', buySum);
-                
                 return buySum;
-            }, 0);
+            }, { cost: 0, discount: 0 });
+
+            dateSum.cost += resultBuySum.cost;
+            dateSum.discount += resultBuySum.discount;
 
             console.log('dateSum: ', dateSum);
-
+            
             return dateSum;
-        }, 0);
+        }, {cost: 0, discount: 0});
         
+        console.log('resultSum: ', resultSum);
+
         return resultSum;
     } catch (err) {
         console.warn(chalk.hex("#ee7733")('No files in the folder. Return.'));
