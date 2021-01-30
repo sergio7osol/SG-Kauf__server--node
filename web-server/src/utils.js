@@ -499,21 +499,44 @@ function listAllDates() { // TODO: implement time range
         dateFileNames = fs.readdirSync(BUY_DATA_DIR); //.filter(file => statSync(path.join(baseFolder, file)).isDirectory());
         resultDates = dateFileNames.map(fileName => {
             const name = fileName.slice(0, -5); // TODO: improve
+            const filePath = path.join(BUY_DATA_DIR, fileName);
+            let fileContentsRaw = null;
+            let buys = null;
+            let buyCount = null;
+            let dateObj = {date: name};
+            
             console.log(chalk.hex("#ee7733")(name));
+                
+            try {
+                fileContentsRaw = fs.readFileSync(filePath, 'utf8');
+            } catch (err) {
+                console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
+                return;
+            }
+            
+            buys = JSON.parse(fileContentsRaw);
+    
+            buyCount = buys.reduce((productCount, buy) => {
+                productCount += buy.products instanceof Array && buy.products.length;
 
-            return name;
+                return productCount;
+            }, 0);
+
+            dateObj.count = buyCount;
+
+            return dateObj;
         });
+
+        console.log('resultDates: ', resultDates);
+
+        console.log(chalk.green('Counted products from ', chalk.hex('#ee7733')(dateFileNames.length), ' dates.'));
 
         return resultDates;
     } catch (err) {
         console.warn(chalk.hex("#ee7733")('No files in the folder. Return.'));
         console.error('ERROR: ', err);
-        return;
+        return false;
     }
-
-    // buys = JSON.parse(fileContentsRaw);
-    // console.log('buys: ', buys);
-
 }
 
 function calculateWholeSum() {
