@@ -1,3 +1,4 @@
 {
-    "buyDataDir": "data"
+    "buyDataDir": "data",
+    "productNamesFile": "src/products/product-names.json"
 }

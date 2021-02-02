@@ -4,7 +4,7 @@ const hbs = require('hbs');
 const chalk = require('chalk');
 const cors = require('cors');
 const serverConfigJSON = require('./server-project.config.json');
-const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates, calculateWholeSum } = require('./utils');
+const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates, calculateWholeSum, getAllProductNames } = require('./utils');
 
 const port = process.env.PORT || 3000;
 const whitelist = ['http://localhost:8080', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
@@ -77,8 +77,6 @@ app.get('/help/*', (req, res) => {
         error: 'Help article not found'
     });
 });
-
-debugger
 
 
 // API
@@ -185,7 +183,6 @@ app.get('/save-product', ({url, query}, res) => {
 
     console.log(chalk.yellow(`${url}: request`));
 
-
     console.log('date: ', date);
     console.log('time: ', time);
     console.log('name: ', name);
@@ -280,6 +277,16 @@ app.get('/list-dates', ({url}, res) => {
     console.log(chalk.yellow(`${url}: request`));
 
     responseResult = listAllDates();
+
+    return res.send(responseResult);
+});
+
+// Get all product names
+app.get('/get-product-names', ({url}, res) => {
+    let responseResult = null;
+    console.log(chalk.yellow(`${url}: request`));
+
+    responseResult = getAllProductNames();
 
     return res.send(responseResult);
 });

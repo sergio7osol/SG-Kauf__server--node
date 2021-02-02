@@ -7,6 +7,7 @@ const serverConfigJSON = require('./server-project.config.json');
 const { type } = require('os');
 
 const BUY_DATA_DIR = path.join(__dirname, '..', serverConfigJSON.buyDataDir);
+const PRODUCT_NAMES_FILE = path.join(__dirname, '..', serverConfigJSON.productNamesFile);
 
 function saveBuy(buyOptions) {
     // provided values
@@ -527,8 +528,6 @@ function listAllDates() { // TODO: implement time range
             return dateObj;
         });
 
-        console.log('resultDates: ', resultDates);
-
         console.log(chalk.green('Counted products from ', chalk.hex('#ee7733')(dateFileNames.length), ' dates.'));
 
         return resultDates;
@@ -620,6 +619,21 @@ function calculateWholeSum() {
     }
 }
 
+function getAllProductNames() { // TODO: implement time range
+    let fileContentsRaw = null;
+    
+    try {
+        fileContentsRaw = fs.readFileSync(PRODUCT_NAMES_FILE, 'utf8');
+    } catch (err) {
+        console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
+        return;
+    }
+
+    console.log(chalk.green('All Product names were loaded.'));
+
+    return fileContentsRaw;
+}
+
 module.exports = {
     saveBuy, 
     removeBuy,
@@ -627,5 +641,6 @@ module.exports = {
     removeProduct,
     readDate,
     listAllDates,
-    calculateWholeSum
+    calculateWholeSum,
+    getAllProductNames
 };
