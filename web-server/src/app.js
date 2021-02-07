@@ -4,7 +4,7 @@ const hbs = require('hbs');
 const chalk = require('chalk');
 const cors = require('cors');
 const serverConfigJSON = require('./server-project.config.json');
-const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates, calculateWholeSum, getAllProductNames } = require('./utils');
+const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates, calculateRangeSum, calculateWholeSum, getAllProductNames } = require('./utils');
 
 const port = process.env.PORT || 3000;
 const whitelist = ['http://localhost:8080', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
@@ -281,12 +281,25 @@ app.get('/list-dates', ({url}, res) => {
     return res.send(responseResult);
 });
 
-// Get all product names
+// Get all product names:
 app.get('/get-product-names', ({url}, res) => {
     let responseResult = null;
+    
     console.log(chalk.yellow(`${url}: request`));
 
     responseResult = getAllProductNames();
+
+    return res.send(responseResult);
+});
+
+// Calculate the sum for a specific period of time:
+app.get('/get-calc-sum', ({url, query}, res) => {
+    let responseResult = null;
+    console.log(chalk.yellow(`${url}: request`));
+
+    responseResult = calculateRangeSum(query.from, query.to);
+
+    console.log('responseResult: ', responseResult, typeof responseResult);
 
     return res.send(responseResult);
 });
