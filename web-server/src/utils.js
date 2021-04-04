@@ -8,6 +8,7 @@ const { type } = require('os');
 
 const BUY_DATA_DIR = path.join(__dirname, '..', serverConfigJSON.buyDataDir);
 const PRODUCT_NAMES_FILE = path.join(__dirname, '..', serverConfigJSON.productNamesFile);
+const PRODUCT_DEFAULTS_FILE = path.join(__dirname, '..', serverConfigJSON.productDefaultsFile);
 
 function saveBuy(buyOptions) {
     // provided values
@@ -734,6 +735,21 @@ function getAllProductNames() { // TODO: implement time range
     return fileContentsRaw;
 }
 
+function getAllProductDefaults() {
+    let fileContentsRaw = null;
+    
+    try {
+        fileContentsRaw = fs.readFileSync(PRODUCT_DEFAULTS_FILE, 'utf8');
+    } catch (err) {
+        console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
+        return;
+    }
+
+    console.log(chalk.green('All Product defaults were loaded.'));
+
+    return fileContentsRaw;
+}
+
 module.exports = {
     saveBuy, 
     removeBuy,
@@ -743,5 +759,6 @@ module.exports = {
     listAllDates,
     calculateRangeSum,
     calculateWholeSum,
-    getAllProductNames
+    getAllProductNames,
+    getAllProductDefaults
 };
