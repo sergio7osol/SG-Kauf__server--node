@@ -92,6 +92,13 @@
     "Frosch Oase",
     "Cillit Bang WC-St.",
     "Hähnchen Unterschenkel",
+    {
+        "name": "K Purland Hähnchen Unterschenkel",
+        "price": 2.69,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
     "Räucherhaus Holz",
     "Mütze Wmann",
     "Schneewatte",
@@ -242,6 +249,14 @@
     "Lindt Mous.Bl.Lav.",
     "Arko Geleefrüchte",
     "Trauben Dunkel",
+    {
+        "name": "Trauben hell",
+        "price": 0.59,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "500g",
+        "discount": 0
+    },
     "Mini Romanasalat",
     "Rind Hackfleisch",
     "Samsung Earphones Tuned by AKG",
@@ -300,7 +315,22 @@
     "Fruchtaufstrich Erdbeere",
     "Lorbeerblätter",
     "Mozzarella",
-    "Tic Tac",
+    {
+        "name": "Tic Tac",
+        "price": 1.49,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "Orange",
+        "discount": 0
+    },
+    {
+        "name": "Milka Löffelei",
+        "price": 2.79,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
     "Edelstahltopfreinigung",
     "Traube rot",
     "Weißkohl",
@@ -315,7 +345,13 @@
     "Hamburger Mehrkorn",
     "Spezialsalz",
     "Geschirr-Reinigung Tabs",
-    "Hähnchen Geschnetzeltes",
+    {
+        "name": "Hähnchen Geschnetzeltes",
+        "price": 2.99,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
     "Edelsalami",
     "Das volle Korn",
     "Knoblauch",
@@ -484,8 +520,23 @@
         "discount": 0
     },
     {
+        "name": "Blumentopf",
+        "price": 1.79,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "28cm",
+        "discount": 0
+    },
+    {
         "name": "CS. Blumentopf",
         "price": 0.99,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
+    {
+        "name": "CS. Blumenschale",
+        "price": 0.79,
         "weightAmount":1,
         "measure":"piece",
         "discount": 0
@@ -544,5 +595,78 @@
         "measure":"piece",
         "description": "300g",
         "discount": 0
+    },
+    {
+        "name": "Extaler Mineralwasser",
+        "price": 0.44,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
+    {
+        "name": "Gala Caffe Crema",
+        "price": 7.99,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
+    {
+        "name": "Bamboo Garden Instant-Nudeln",
+        "price": 1.49,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
+    {
+        "name": "Marshmallows Mini",
+        "price": 1.49,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
+    {
+        "name": "K Classic Spitzen Langkorn Reis, lose",
+        "price": 3.79,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
+    {
+        "name": "Carters. Root Beer",
+        "price": 1.29,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "0.33l",
+        "discount": 0
+    },
+    {
+        "name": "Eiweissbrot",
+        "price": 1.99,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
+    {
+        "name": "",
+        "price": 0,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
+    {
+        "name": "",
+        "price": 0,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
     }
+    
 ]
