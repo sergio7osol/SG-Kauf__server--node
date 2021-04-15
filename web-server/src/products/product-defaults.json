@@ -1,6 +1,14 @@
 [
     "Deli.Schw.Braten",
     "Tilsiter 45% Sch",
+    {
+        "name": "KLC Tilsiter",
+        "price": 1.99,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "400g",
+        "discount": 0
+    },
     "JA! Maasdamer",
     {
         "name": "Steinofenbrot",
@@ -11,7 +19,21 @@
     },
     "Sonnenkern",
     "Zitrone",
-    "Banane",
+    {
+        "name": "K-Bio Zitronen",
+        "price": 1.49,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "500g",
+        "discount": 0
+    },
+    {
+        "name": "Banane",
+        "price": 0,
+        "weightAmount":0,
+        "measure":"kg",
+        "discount": 0
+    },
     "Heidelbeere",
     "Obst/Gemuese",
     "Salatgurke",
@@ -22,7 +44,13 @@
     "Ofenfr. BBQ-Pork",
     "Schlaf+Nerventee",
     "Miracel Whip",
-    "Gelee-Bananen",
+    {
+        "name": "KLC Gelee-Bananen",
+        "price": 0.89,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
     "Interdentalb.Bl.",
     "Pflaumenberliner",
     "Berliner",
@@ -34,6 +62,13 @@
     "Gelee Baum",
     "Pfeffersalami",
     "Wacholderschinke",
+    {
+        "name": "K-Classic Weißwurst",
+        "price": 2.29,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
     "Muen. Weisswurst",
     "JA! Emmentaler",
     "JA! Mozzarella",
@@ -110,7 +145,14 @@
     "Weinkäse",
     "Amarettino Dessert",
     "Dilek Helva Pist.",
-    "Dilek Helva Kakao",
+    {
+        "name": "Dilek Helva Kakao",
+        "price": 2.49,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
     "KBio. Bandnudeln",
     "Seeb. Walnusskerne",
     "Ingwer",
@@ -119,7 +161,7 @@
         "price": 1.59,
         "weightAmount":1,
         "measure":"piece",
-        "description": "",
+        "description": "Light Paprika",
         "discount": 0
     },
     "Pringles Original",
@@ -132,11 +174,19 @@
     "Euroshop Artikel",
     "Möven.Sahnepudding",
     {
-        "name": "Hansano Weidemilch",
+        "name": "Hansano Weidemilch 0.5l",
+        "price": 0.69,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "3,9%",
+        "discount": 0
+    },
+    {
+        "name": "Hansano Weidemilch 1l",
         "price": 1.29,
         "weightAmount":1,
         "measure":"piece",
-        "description": "3,9% 1l",
+        "description": "3,9%",
         "discount": 0
     },
     "Fol Epi Scheiben",
@@ -163,7 +213,14 @@
     "Bäckfisch-Stäbchen",
     "Katenschnitten",
     "K-FAV Lachs Carpaccio",
-    "K.Bierschinken",
+    {
+        "name": "K.Bierschinken",
+        "price": 0.99,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
     "KLC. Schinken Gyros",
     "Wacholderschinke",
     "Hänchenbrust",
@@ -196,6 +253,22 @@
     "Granatapel",
     "Weidebutter Sues",
     "Naturjogh. 3.5%",
+    {
+        "name": "Weih. Joghurt",
+        "price": 0.55,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "mild",
+        "discount": 0
+    },
+    {
+        "name": "K Bio Sauerrahm Butter",
+        "price": 2.29,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
     "Prosciutto",
     "Beerenmuesli",
     "Kirschkonfituere",
@@ -212,14 +285,53 @@
     "Fol Epi Provence",
     "Meg. FeineSüssrahm",
     "Möhren",
+    {
+        "name": "Tomaten",
+        "price": 2.49,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "300g",
+        "discount": 0
+    },
     "Tomaten Rispen",
     "Paprika rot",
-    "K. Schoko-Haselnuss",
+    {
+        "name": "Paprika grün",
+        "price": 2.29,
+        "weightAmount":1,
+        "measure":"kg",
+        "description": "",
+        "discount": 0
+    },
+    {
+        "name": "K. Schoko-Haselnuss",
+        "price": 1.79,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
     "Ristorante Pizza Speciale",
     "Dr.Oetker La Mia Grande",
     "KLC. Putenbrust",
     "Putenbrust",
     "K.MSC Heringsfilet",
+    {
+        "name": "MSC Matjesfilet nord",
+        "price": 2.99,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
+    {
+        "name": "KLC Lachsforelle",
+        "price": 2.19,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
     {
         "name": "Gurken",
         "price": 0.69,
@@ -290,7 +402,13 @@
     "Power System Eiweißriegel",
     "Gelee-Schoko-Mix",
     "Limonade",
-    "FFP-2 Masken",
+    {
+        "name": "FFP-2 Masken",
+        "price": 0.79,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
     "Mineralwasser",
     "Somat 7 ALL-IN-1",
     "Diamant Mehl",
@@ -301,7 +419,14 @@
     "Mentos Fruit",
     "Mentos Kaudragee",
     "Strauchtomaten",
-    "Romatomaten",
+    {
+        "name": "Romatomaten",
+        "price": 1.49,
+        "weightAmount":1,
+        "measure":"piece",
+        "description":"500g",
+        "discount": 0
+    },
     "Traube",
     "Topfrose in Keramik",
     "Salami Tropical Pepper",
@@ -352,7 +477,20 @@
         "measure":"piece",
         "discount": 0
     },
-    "Edelsalami",
+    {
+        "name": "Edelsalami",
+        "price": 1.11,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
+    {
+        "name": "Salami mit Brie-Käse",
+        "price": 1.51,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
     "Das volle Korn",
     "Knoblauch",
     "Lauchzwiebel",
@@ -370,7 +508,14 @@
     "Edelspiralen",
     "Marmelade Fruchtaufstrich",
     "Schinken-Schnitzel",
-    "Pril",
+    {
+        "name": "Pril",
+        "price": 1.25,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "Eukalyptus",
+        "discount": 0
+    },
     "Universalgewürz",
     "Zentis Nusspli Belmandel",
     "Hamburger Mix",
@@ -379,6 +524,13 @@
     {
         "name": "Kikkoman Teriyaki",
         "price": 4.29,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
+    {
+        "name": "K-Classic Küchenrolle",
+        "price": 1.45,
         "weightAmount":1,
         "measure":"piece",
         "discount": 0
@@ -410,6 +562,13 @@
     "Parsa Badetuff",
     "Bee Lippenbalsam",
     "Dove Handcreme",
+    {
+        "name": "Dove Duschgel",
+        "price": 1.29,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
     "Palmolive Duschgel",
     "Spritzbeutel",
     "K-Classic Maasdamer in Scheiben",
@@ -428,6 +587,14 @@
     "Lindt EB Mousse",
     "Seeberger Popcorn-Mais",
     "Überraschungsei mit Anhänger",
+    {
+        "name": "Überraschungsei Maxi",
+        "price": 3.29,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
     "K-Classic Koch-Hinterschinken",
     "JA! Bierschinken",
     "JA! Knoblauchbutter-Baguette",
@@ -439,7 +606,30 @@
     "Lindt Edelbitter Mousse Cranberry",
     "JA! Dill-Sahne-Heringsfilet",
     "Schmand 24%",
-    "Nestle Honey Cheerios",
+    {
+        "name": "Nestle Honey Cheerios",
+        "price": 1.99,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
+    {
+        "name": "Nesquik ABC",
+        "price": 1.99,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
+    {
+        "name": "Steak sauce",
+        "price": 1.19,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
     "Kakao zum Backen",
     "Steak Sauce",
     "JA! Geschirrspülmittel Classic",
@@ -452,7 +642,14 @@
     "Dulgon Handgel",
     "Mundschutz",
     "Philadelphia Natur",
-    "KLC Emmentaler am Stück",
+    {
+        "name": "KLC Emmentaler am Stück",
+        "price": 2.69,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
     "Buchweizen",
     "KLC Langkornreis",
     "Bamboo Garden Ess-Stäbchen",
@@ -461,6 +658,30 @@
     "Bamboo Garden Wasabi-Paste",
     "Bambusmatte",
     "Sambal Oelek Trassie",
+    {
+        "name": "Sambal Oelek",
+        "price": 1.29,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "Bamboo Garden",
+        "discount": 0
+    },
+    {
+        "name": "Sambal Tjampoer",
+        "price": 1.26,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "Bamboo Garden",
+        "discount": 0
+    },
+    {
+        "name": "KLC Emmentaler am Stück",
+        "price": 2.69,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "",
+        "discount": 0
+    },
     "Datteltomaten",
     "KLC Räucherlachs",
     "Mandelhörnchen",
@@ -542,6 +763,14 @@
         "discount": 0
     },
     {
+        "name": "Spice Schüssel",
+        "price": 1.29,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "29cm",
+        "discount": 0
+    },
+    {
         "name": "Sämereien Radies",
         "price": 1.79,
         "weightAmount":1,
@@ -555,6 +784,22 @@
         "weightAmount":1,
         "measure":"piece",
         "description": "Schmücke Garten und Heim",
+        "discount": 0
+    },
+    {
+        "name": "Sämereien Monatserdbeeren Rügen",
+        "price": 1.75,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "Quedlinburger",
+        "discount": 0
+    },
+    {
+        "name": "Sämereien Fleischtomate",
+        "price": 1.75,
+        "weightAmount":1,
+        "measure":"piece",
+        "description": "Quedlinburger",
         "discount": 0
     },
     {
@@ -614,7 +859,7 @@
     },
     {
         "name": "Bamboo Garden Instant-Nudeln",
-        "price": 1.49,
+        "price": 1.69,
         "weightAmount":1,
         "measure":"piece",
         "description": "",
