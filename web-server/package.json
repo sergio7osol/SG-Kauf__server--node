@@ -9,5 +9,8 @@
   },
   "scripts": {
     "watch": "npx nodemon src/app.js -e js, hbs"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0"
   }
 }
