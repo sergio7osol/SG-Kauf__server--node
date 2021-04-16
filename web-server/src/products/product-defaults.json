@@ -674,14 +674,6 @@
         "description": "Bamboo Garden",
         "discount": 0
     },
-    {
-        "name": "KLC Emmentaler am Stück",
-        "price": 2.69,
-        "weightAmount":1,
-        "measure":"piece",
-        "description": "",
-        "discount": 0
-    },
     "Datteltomaten",
     "KLC Räucherlachs",
     "Mandelhörnchen",
@@ -764,7 +756,7 @@
     },
     {
         "name": "Spice Schüssel",
-        "price": 1.29,
+        "price": 2.99,
         "weightAmount":1,
         "measure":"piece",
         "description": "29cm",
