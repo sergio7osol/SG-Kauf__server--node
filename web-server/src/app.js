@@ -4,10 +4,10 @@ const hbs = require('hbs');
 const chalk = require('chalk');
 const cors = require('cors');
 const serverConfigJSON = require('./server-project.config.json');
-const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates, calculateRangeSum, calculateWholeSum, getAllProductNames, getAllProductDefaults, getIndexProductData } = require('./utils');
+const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates, getShoppingDates, calculateRangeSum, calculateWholeSum, getAllProductNames, getAllProductDefaults, getIndexProductData } = require('./utils');
 
 const port = process.env.PORT || 3000;
-const whitelist = ['http://localhost:8080', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
+const whitelist = ['http://localhost:8080', 'http://localhost:4200', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
 
 // Paths for express config
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
@@ -58,7 +58,6 @@ app.get('/with-cors', (req, res) => {
   
     res.json({ msg: 'CORS Works! 🎉' })
   });
-
 app.get('', (req, res) => {
     res.render(path.join(VIEWS_DIR, 'index'), {
         mainColumn: 'SG-Kauf application',
@@ -66,11 +65,9 @@ app.get('', (req, res) => {
         name: 'Sergey Osokin' 
     });
 });
-
 app.get('/help', (req, res) => {
     res.send('<h1>Help page</h1>');
 });
-
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
@@ -136,7 +133,6 @@ app.get('/save-buy', ({url, query}, res) => {
         // describe: 'Name of the shop, where the buy of products happened',
         // type: 'string' // enum
 });
-
 // Remove a buy:
 app.get('/remove-buy', ({url, query}, res) => {
     let responseResult = null;
@@ -149,7 +145,6 @@ app.get('/remove-buy', ({url, query}, res) => {
 
     return res.send(responseResult);    
 });
-
 // Add product to the buy:
 app.get('/save-product', ({url, query}, res) => {
     let statusMsg = null;
@@ -222,7 +217,6 @@ app.get('/save-product', ({url, query}, res) => {
         // describe: 'Name of the shop, where the buy of products happened',
         // type: 'string' // enum
 });
-
 // Remove product from the buy:
 app.get('/remove-product', ({url, query}, res) => {
     let statusMsg = null;
@@ -269,13 +263,21 @@ app.get('/remove-product', ({url, query}, res) => {
 
     return res.send(responseResult);
 });
-
 // List all dates:
 app.get('/list-dates', ({url}, res) => {
     let responseResult = null;
     console.log(chalk.yellow(`${url}: request`));
 
     responseResult = listAllDates();
+
+    return res.send(responseResult);
+});
+// List all shopping dates:
+app.get('/get-shopping-dates', ({url}, res) => {
+    let responseResult = null;
+    console.log(chalk.yellow(`${url}: request`));
+
+    responseResult = getShoppingDates();
 
     return res.send(responseResult);
 });
@@ -290,7 +292,6 @@ app.get('/get-product-names', ({url}, res) => {
 
     return res.send(responseResult);
 });
-
 // Get all product defaults:
 app.get('/get-product-defaults', ({url}, res) => {
     let responseResult = null;
@@ -301,7 +302,6 @@ app.get('/get-product-defaults', ({url}, res) => {
 
     return res.send(responseResult);
 });
-
 // Calculate the sum for a specific period of time:
 app.get('/get-calc-sum', ({url, query}, res) => {
     let responseResult = null;
@@ -313,7 +313,6 @@ app.get('/get-calc-sum', ({url, query}, res) => {
 
     return res.send(responseResult);
 });
-
 // Calculate the whole sum of all dates:
 app.get('/get-whole-sum', ({url}, res) => {
     let responseResult = null;
@@ -325,7 +324,6 @@ app.get('/get-whole-sum', ({url}, res) => {
 
     return res.send({wholeSum: responseResult});
 });
-
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',

@@ -5,6 +5,7 @@ const find = require('lodash/find');
 const remove = require('lodash/remove');
 const serverConfigJSON = require('./server-project.config.json');
 const { type } = require('os');
+const { datesToNgDates } = require('./ngConvert');
 
 const BUY_DATA_DIR = path.join(__dirname, '..', serverConfigJSON.buyDataDir);
 const PRODUCT_NAMES_FILE = path.join(__dirname, '..', serverConfigJSON.productNamesFile);
@@ -491,7 +492,6 @@ function readDate(date) {
         message: `No buys for ${date} at ${time} were found.`
     };
 }
-
 function listAllDates() { // TODO: implement time range
     let dateFileNames = null;
     let resultDates = null;
@@ -538,7 +538,42 @@ function listAllDates() { // TODO: implement time range
         return false;
     }
 }
+// ng-method. Improved
+function getShoppingDates() { // TODO: implement time range
+    let dateFileNames = null;
+    let resultDates = null;
 
+    try {
+        dateFileNames = fs.readdirSync(BUY_DATA_DIR); //.filter(file => statSync(path.join(baseFolder, file)).isDirectory());
+        resultDates = dateFileNames.reduce((acc, fileName) => {
+            const filePath = path.join(BUY_DATA_DIR, fileName);
+            let fileContentsRaw = null;
+            let shoppingDate = null;
+            
+            try {
+                fileContentsRaw = fs.readFileSync(filePath, 'utf8');
+            } catch (err) {
+                console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
+                return;
+            }
+            
+            shoppingDate = JSON.parse(fileContentsRaw);
+            acc.push(shoppingDate);
+    
+            return acc;
+        }, []);
+
+        console.log(chalk.green('Fetched ', chalk.hex('#ee7733')(dateFileNames.length), ' dates.'));
+
+        resultDates = datesToNgDates(resultDates);
+
+        return resultDates;
+    } catch (err) {
+        console.warn(chalk.hex("#ee7733")('No files in the folder. Return.'));
+        console.error('ERROR: ', err);
+        return false;
+    }
+}
 function calculateRangeSum(from, to) {
     const fromMillisec = getDateMillisec(from);
     const toMillisec = getDateMillisec(to);
@@ -638,7 +673,6 @@ function calculateRangeSum(from, to) {
         return dateMillisec;
     }
 }
-
 function calculateWholeSum() {
     let dateFileNames = null;
     let fileContentsRaw = null;
@@ -719,7 +753,6 @@ function calculateWholeSum() {
         return;
     }
 }
-
 function getAllProductNames() { // TODO: implement time range
     let fileContentsRaw = null;
     
@@ -734,7 +767,6 @@ function getAllProductNames() { // TODO: implement time range
 
     return fileContentsRaw;
 }
-
 function getAllProductDefaults() {
     let fileContentsRaw = null;
     
@@ -757,6 +789,7 @@ module.exports = {
     removeProduct,
     readDate,
     listAllDates,
+    getShoppingDates,
     calculateRangeSum,
     calculateWholeSum,
     getAllProductNames,
