@@ -552,7 +552,6 @@
     "Hansaplast Foot Creme",
     "Parodontax",
     "Sebamed Seifenfreies Waschstück",
-    "Dove Waschstück",
     "Garn. Gewürzseife",
     "Cillit Geräte-Entkalker Tabs",
     "Dr. Beckmann Putzstein",
@@ -569,7 +568,20 @@
         "measure":"piece",
         "discount": 0
     },
-    "Palmolive Duschgel",
+    {
+        "name": "Dove Waschstück",
+        "price": 0.65,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
+    {
+        "name": "Palmolive Duschgel",
+        "price": 0.95,
+        "weightAmount":1,
+        "measure":"piece",
+        "discount": 0
+    },
     "Spritzbeutel",
     "K-Classic Maasdamer in Scheiben",
     "Dinkelmehl Type 630",

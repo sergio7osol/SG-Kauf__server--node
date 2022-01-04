@@ -94,8 +94,8 @@ function saveBuy(buyOptions) {
         date,
         time,
         currency,
-        country,
         address: {
+            country,
             index,
             city,
             street,
@@ -133,9 +133,9 @@ function saveBuy(buyOptions) {
             console.warn(chalk.hex("#ee7733")(`The buy of ${chalk.hex("#bb99aa")(date)} at ${chalk.hex("#bb99aa")(time)} exists. Overwrite it.`));
 
             existingBuy.currency = resultBuy.currency;
-            existingBuy.country = resultBuy.country;
-            existingBuy.address.city = resultBuy.address.city;
+            existingBuy.address.country = resultBuy.address.country;
             existingBuy.address.index = resultBuy.address.index;
+            existingBuy.address.city = resultBuy.address.city;
             existingBuy.address.street = resultBuy.address.street;
             existingBuy.address.houseNumber = resultBuy.address.houseNumber;
             existingBuy.payMethod = resultBuy.payMethod;
@@ -406,12 +406,9 @@ function removeProduct({date, time, name, price, weightAmount, measure, descript
                 price, 
                 measure,
                 weightAmount,
-                discount
+                discount,
+                ...(!!description && { description })
             };
-
-            if (description) {
-                productToRemove.description = description;
-            }
 
             console.log('existingProducts: ', existingProducts);
             console.log('productToRemove: ', productToRemove);
@@ -440,11 +437,11 @@ function removeProduct({date, time, name, price, weightAmount, measure, descript
                 chalk.hex('#ee7733')(removedProduct.discount),
                 chalk.green(' discount.'));
 
-            return existingProducts;
-            // return {
-            //     success: true,
-            //     message: `The the product - ${removedProduct.name} - were successfully removed from the buy of ${date} at ${time}.`
-            // };
+            // return existingProducts;
+            return {
+                success: true,
+                message: `The the product - ${removedProduct.name} - were successfully removed from the buy of ${date} at ${time}.`
+            };
         }
     } else {
         console.warn(chalk.hex("#ee7733")(`No buy entries found. End of function.`));

@@ -7,7 +7,7 @@ const serverConfigJSON = require('./server-project.config.json');
 const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates, getShoppingDates, calculateRangeSum, calculateWholeSum, getAllProductNames, getAllProductDefaults, getIndexProductData } = require('./utils');
 
 const port = process.env.PORT || 3000;
-const whitelist = ['http://localhost:8080', 'http://localhost:4200', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
+const whitelist = ['http://localhost:8080', 'http://localhost:3000', 'http://localhost:4200', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
 
 // Paths for express config
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
