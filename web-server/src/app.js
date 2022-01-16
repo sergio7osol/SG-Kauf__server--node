@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const cors = require('cors');
 const serverConfigJSON = require('./server-project.config.json');
 const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates, getShoppingDates, calculateRangeSum, calculateWholeSum, getAllProductNames, getAllProductDefaults, getIndexProductData } = require('./utils');
+const { getForecast } = require('./weather-app/utils/getForecast');
 
 const port = process.env.PORT || 3000;
 const whitelist = ['http://localhost:8080', 'http://localhost:3000', 'http://localhost:4200', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
@@ -76,7 +77,6 @@ app.get('/help/*', (req, res) => {
 });
 
 // API
-// Reading a day:
 app.get('/read-date', ({url, query}, res) => {
     let statusMsg = null;
     let responseResult = null;
@@ -265,6 +265,7 @@ app.get('/remove-product', ({url, query}, res) => {
 });
 // List all dates:
 app.get('/list-dates', ({url}, res) => {
+    console.log('111');
     let responseResult = null;
     console.log(chalk.yellow(`${url}: request`));
 
@@ -323,6 +324,24 @@ app.get('/get-whole-sum', ({url}, res) => {
     console.log('responseResult: ', responseResult, typeof responseResult);
 
     return res.send({wholeSum: responseResult});
+});
+app.get('/get-weather', ({url, query}, res) => {
+    let encodedAddress = query.address;  
+
+    getForecast(encodedAddress)
+        .then(forecastResult => {
+            if (!forecastResult) {
+                const statusMsg = 'Address must be provided.';
+                console.warn(chalk.yellow(url, ': '), chalk.red(statusMsg));
+
+                return res.send({
+                    success: false,
+                    error: `${url}: ${statusMsg}`
+                });
+            }
+
+            return res.send(forecastResult);
+    });
 });
 app.get('*', (req, res) => {
     res.render('404', {
