@@ -26,7 +26,7 @@ function saveBuy(buyOptions) {
     let shopName = buyOptions.shopName;
     let resultBuy = null;
     const filePath = path.join(BUY_DATA_DIR, date + '.json');
-    
+
     // provided values -> green color; 
     // default values -> yellow color
     console.log('Date: ', chalk.green(date));
@@ -117,16 +117,16 @@ function saveBuy(buyOptions) {
         console.warn(chalk.hex("#ee7733")('No such file in the folder. Create default content for a new one.'));
         fileContentsRaw = '[]';
     }
-    
+
     buys = JSON.parse(fileContentsRaw);
-    
+
     // check whether the new buy is unique
     if (buys.length) {
         // searching for the unique buy - same date, same time
-        existingBuy = find(buys, function(props) { 
-            if (props.time === time) { 
-                return true; 
-            } 
+        existingBuy = find(buys, function (props) {
+            if (props.time === time) {
+                return true;
+            }
         });
 
         if (existingBuy) {
@@ -151,7 +151,7 @@ function saveBuy(buyOptions) {
         } else {
             console.warn(chalk.hex("#ee7733")(`The buy of ${chalk.hex("#bb99aa")(date)} at ${chalk.hex("#bb99aa")(time)} does not exist. Add the current one as a new one.`));
         }
-    } 
+    }
 
     buys.push(resultBuy);
     resultBuys = JSON.stringify(buys);
@@ -163,10 +163,10 @@ function saveBuy(buyOptions) {
     };
 }
 
-function removeBuy({date, time}) {
+function removeBuy({ date, time }) {
     let filePath = null;
     let buys = null;
-    
+
     if (!(date && time)) {
         statusMsg = 'Date and time must be provided.';
         console.warn(chalk.red(statusMsg));
@@ -183,29 +183,29 @@ function removeBuy({date, time}) {
         fileContentsRaw = fs.readFileSync(filePath, 'utf8');
     } catch (err) {
         console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
-        
+
         return {
             success: false,
             message: `The file for buy of ${date} at ${time} is not found.`
         };
     }
-    
+
     buys = JSON.parse(fileContentsRaw);
-    
+
     // check whether there are any buys for this date
     if (buys.length) {
         // searching for the unique buy - same date, same time
-        existingBuy = find(buys, function(props, i, src) {
-            if (props.time === time) { 
+        existingBuy = find(buys, function (props, i, src) {
+            if (props.time === time) {
                 console.warn(chalk.hex("#ee7733")(`The buy of ${chalk.hex("#bb99aa")(date)} at ${chalk.hex("#bb99aa")(time)} is found. Removing it...`));
 
-                return true; 
-            } 
+                return true;
+            }
         });
         // the needed buy is found. Remove it
         if (existingBuy) {
             remove(buys, existingBuy);
-            
+
             console.warn(chalk.hex("#ee7733")(`The buy of ${chalk.hex("#bb99aa")(date)} at ${chalk.hex("#bb99aa")(time)} was successfully removed.`));
 
             if (!buys.length) {
@@ -225,7 +225,7 @@ function removeBuy({date, time}) {
                 resultBuys = JSON.stringify(buys);
                 fs.writeFileSync(filePath, resultBuys);
             }
-            
+
             return buys;
 
             // return {
@@ -246,7 +246,7 @@ function removeBuy({date, time}) {
     };
 }
 
-function saveProduct({date, time, name, price, weightAmount, measure, description, discount}) {
+function saveProduct({ date, time, name, price, weightAmount, measure, description, discount }) {
     const filePath = path.join(BUY_DATA_DIR, date + '.json');
     let fileContentsRaw = null;
     let buys = null;
@@ -279,13 +279,13 @@ function saveProduct({date, time, name, price, weightAmount, measure, descriptio
     }
 
     buys = JSON.parse(fileContentsRaw);
-    
+
     if (buys.length) {
         // searching for the unique buy - same date, same time
-        existingBuy = find(buys,  (props) => { 
-            if (props.time === time) { 
-                return true; 
-            } 
+        existingBuy = find(buys, (props) => {
+            if (props.time === time) {
+                return true;
+            }
         });
 
         if (!existingBuy) {
@@ -304,14 +304,14 @@ function saveProduct({date, time, name, price, weightAmount, measure, descriptio
                 discount
             };
 
+            addToProductDefaults(product);
+
             // check whether there already is this product
             if (find(existingProducts, product)) {
                 throw Error(chalk.red(`Products array already has such a product: ${product.name}. Program stops.`));
             }
 
             existingProducts.push(product); // TODO: improve with validation of every product and add a possibility of choosing array/separate object
-            
-            console.log('existingProducts >: ', existingProducts);
 
             resultBuys = JSON.stringify(buys);
 
@@ -319,7 +319,7 @@ function saveProduct({date, time, name, price, weightAmount, measure, descriptio
 
             // provided values -> green color; 
             console.log('Product added: ', chalk.green(`The the product - ${product.name} - was successfully added to the buy of ${date} at ${time}.`));
-            
+
             return existingProducts;
             // return {
             //     success: true,
@@ -331,7 +331,7 @@ function saveProduct({date, time, name, price, weightAmount, measure, descriptio
     }
 }
 
-function removeProduct({date, time, name, price, weightAmount, measure, description, discount}) {
+function removeProduct({ date, time, name, price, weightAmount, measure, description, discount }) {
     const filePath = path.join(BUY_DATA_DIR, date + '.json');
     let fileContentsRaw = null;
     let productToRemove = null;
@@ -380,13 +380,13 @@ function removeProduct({date, time, name, price, weightAmount, measure, descript
     }
 
     buys = JSON.parse(fileContentsRaw);
-    
+
     if (buys.length) {
         // searching for the unique buy - same date, same time
-        existingBuy = find(buys, function(props) { 
-            if (props.time === time) { 
-                return true; 
-            } 
+        existingBuy = find(buys, function (props) {
+            if (props.time === time) {
+                return true;
+            }
         });
 
         if (!existingBuy) {
@@ -403,7 +403,7 @@ function removeProduct({date, time, name, price, weightAmount, measure, descript
             // construct a product object
             productToRemove = {
                 name,
-                price, 
+                price,
                 measure,
                 weightAmount,
                 discount,
@@ -427,8 +427,8 @@ function removeProduct({date, time, name, price, weightAmount, measure, descript
             // provided values -> green color; 
             console.log('Date: ', chalk.green(date));
             console.log('Time: ', chalk.green(time));
-            console.log(chalk.green('Product removed: '), 
-                chalk.hex('#ee7733')(removedProduct.name), 
+            console.log(chalk.green('Product removed: '),
+                chalk.hex('#ee7733')(removedProduct.name),
                 chalk.green(', bought for '),
                 chalk.hex('#ee7733')(removedProduct.price, removedProduct.currency),
                 chalk.green(' for '),
@@ -451,7 +451,7 @@ function removeProduct({date, time, name, price, weightAmount, measure, descript
 function readDate(date) {
     let filePath = null;
     let buys = null;
-    
+
     if (!date) {
         statusMsg = 'Date must be provided.';
         console.warn(chalk.red(statusMsg));
@@ -468,22 +468,22 @@ function readDate(date) {
         fileContentsRaw = fs.readFileSync(filePath, 'utf8');
     } catch (err) {
         console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
-        
+
         return {
             success: false,
             message: `The file for buy of ${date} is not found.`
         };
     }
-    
+
     buys = JSON.parse(fileContentsRaw);
-    
+
     // check whether there are any buys for this date
     if (buys.length) {
         return buys;
     }
 
     console.warn(chalk.hex("#ee7733")(`No buys for ${chalk.hex("#bb99aa")(date)} were found.`));
-    
+
     return {
         success: false,
         message: `No buys for ${date} at ${time} were found.`
@@ -502,19 +502,19 @@ function listAllDates() { // TODO: implement time range
             let fileContentsRaw = null;
             let buys = null;
             let buyCount = null;
-            let dateObj = {date: name};
-            
+            let dateObj = { date: name };
+
             console.log(chalk.hex("#ee7733")(name));
-                
+
             try {
                 fileContentsRaw = fs.readFileSync(filePath, 'utf8');
             } catch (err) {
                 console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
                 return;
             }
-            
+
             buys = JSON.parse(fileContentsRaw);
-    
+
             buyCount = buys.reduce((productCount, buy) => {
                 productCount += buy.products instanceof Array && buy.products.length;
 
@@ -546,17 +546,17 @@ function getShoppingDates() { // TODO: implement time range
             const filePath = path.join(BUY_DATA_DIR, fileName);
             let fileContentsRaw = null;
             let shoppingDate = null;
-            
+
             try {
                 fileContentsRaw = fs.readFileSync(filePath, 'utf8');
             } catch (err) {
                 console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
                 return;
             }
-            
+
             shoppingDate = JSON.parse(fileContentsRaw);
             acc.push(shoppingDate);
-    
+
             return acc;
         }, []);
 
@@ -584,23 +584,23 @@ function calculateRangeSum(from, to) {
 
         dateRangeFileNames = dateFileNames.filter(v => {
             const vMillisec = getDateMillisec(v);
-            const res = fromMillisec <=  vMillisec && vMillisec <=  toMillisec ? true : false;
+            const res = fromMillisec <= vMillisec && vMillisec <= toMillisec ? true : false;
 
             return res;
         });
 
         resultSum = dateRangeFileNames.reduce((dateSum, fileName) => {
             const filePath = path.join(BUY_DATA_DIR, fileName);
-            let  resultBuySum = null;
+            let resultBuySum = null;
             console.log('fileName: ', fileName);
-            
+
             try {
                 fileContentsRaw = fs.readFileSync(filePath, 'utf8');
             } catch (err) {
                 console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
                 return;
             }
-        
+
             buys = JSON.parse(fileContentsRaw);
 
             resultBuySum = buys.reduce((buySum, buy) => {
@@ -647,10 +647,10 @@ function calculateRangeSum(from, to) {
 
             dateSum.cost += resultBuySum.cost;
             dateSum.discount += resultBuySum.discount;
-            
+
             return dateSum;
-        }, {cost: 0, discount: 0});
-        
+        }, { cost: 0, discount: 0 });
+
         console.log('resultSum: ', resultSum);
 
         return resultSum;
@@ -679,16 +679,16 @@ function calculateWholeSum() {
         dateFileNames = fs.readdirSync(BUY_DATA_DIR); //.filter(file => statSync(path.join(baseFolder, file)).isDirectory());
         resultSum = dateFileNames.reduce((dateSum, fileName) => {
             const filePath = path.join(BUY_DATA_DIR, fileName);
-            let  resultBuySum = null;
+            let resultBuySum = null;
             console.log('fileName: ', fileName);
-            
+
             try {
                 fileContentsRaw = fs.readFileSync(filePath, 'utf8');
             } catch (err) {
                 console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
                 return;
             }
-        
+
             buys = JSON.parse(fileContentsRaw);
 
             resultBuySum = buys.reduce((buySum, buy) => {
@@ -737,10 +737,10 @@ function calculateWholeSum() {
             dateSum.discount += resultBuySum.discount;
 
             console.log('dateSum: ', dateSum);
-            
+
             return dateSum;
-        }, {cost: 0, discount: 0});
-        
+        }, { cost: 0, discount: 0 });
+
         console.log('resultSum: ', resultSum);
 
         return resultSum;
@@ -752,7 +752,7 @@ function calculateWholeSum() {
 }
 function getAllProductNames() { // TODO: implement time range
     let fileContentsRaw = null;
-    
+
     try {
         fileContentsRaw = fs.readFileSync(PRODUCT_NAMES_FILE, 'utf8');
     } catch (err) {
@@ -766,7 +766,7 @@ function getAllProductNames() { // TODO: implement time range
 }
 function getAllProductDefaults() {
     let fileContentsRaw = null;
-    
+
     try {
         fileContentsRaw = fs.readFileSync(PRODUCT_DEFAULTS_FILE, 'utf8');
     } catch (err) {
@@ -778,9 +778,33 @@ function getAllProductDefaults() {
 
     return fileContentsRaw;
 }
+function addToProductDefaults(productItem) {
+    const fileContentsRaw = _getFileContents(PRODUCT_DEFAULTS_FILE);
+    const defaults = JSON.parse(fileContentsRaw);
+
+    const foundDefault = find(defaults, productItem);
+    if (foundDefault) {
+        console.log(chalk.green(`Product: ${chalk.blueBright(productItem.name)} : ${chalk.blueBright(productItem.price)} : ${chalk.blueBright(productItem.weightAmount)} : ${chalk.blueBright(productItem.measure)} : ${chalk.blueBright(productItem.description)} : ${chalk.blueBright(productItem.discount)} already exists in defaults. Continue...`));
+        return false;
+    } else {
+        console.log(chalk.green(`Product: ${chalk.blueBright(productItem.name)} : ${chalk.blueBright(productItem.price)} : ${chalk.blueBright(productItem.weightAmount)} : ${chalk.blueBright(productItem.measure)} : ${chalk.blueBright(productItem.description)} : ${chalk.blueBright(productItem.discount)} does not exist in defaults. Saving...`));        
+        defaults.push(productItem);
+        const newDefaults = JSON.stringify(defaults);
+        fs.writeFileSync(PRODUCT_DEFAULTS_FILE, newDefaults);
+        return true;
+    }
+}
+function _getFileContents(fileUrl) {
+    try {
+        return fileContentsRaw = fs.readFileSync(fileUrl, 'utf8');
+    } catch (err) {
+        console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
+        return false;
+    }
+}
 
 module.exports = {
-    saveBuy, 
+    saveBuy,
     removeBuy,
     saveProduct,
     removeProduct,
@@ -790,5 +814,6 @@ module.exports = {
     calculateRangeSum,
     calculateWholeSum,
     getAllProductNames,
-    getAllProductDefaults
+    getAllProductDefaults,
+    addToProductDefaults
 };

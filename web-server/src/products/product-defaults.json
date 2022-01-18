@@ -4,8 +4,8 @@
     {
         "name": "KLC Tilsiter",
         "price": 1.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "400g",
         "discount": 0
     },
@@ -13,8 +13,8 @@
     {
         "name": "Steinofenbrot",
         "price": 1.39,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     "Sonnenkern",
@@ -22,16 +22,16 @@
     {
         "name": "K-Bio Zitronen",
         "price": 1.49,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "500g",
         "discount": 0
     },
     {
         "name": "Banane",
         "price": 0,
-        "weightAmount":0,
-        "measure":"kg",
+        "weightAmount": 0,
+        "measure": "kg",
         "discount": 0
     },
     "Heidelbeere",
@@ -47,8 +47,8 @@
     {
         "name": "KLC Gelee-Bananen",
         "price": 0.89,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     "Interdentalb.Bl.",
@@ -65,8 +65,8 @@
     {
         "name": "K-Classic Weißwurst",
         "price": 2.29,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     "Muen. Weisswurst",
@@ -130,8 +130,8 @@
     {
         "name": "K Purland Hähnchen Unterschenkel",
         "price": 2.69,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     "Räucherhaus Holz",
@@ -148,8 +148,8 @@
     {
         "name": "Dilek Helva Kakao",
         "price": 2.49,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
@@ -159,8 +159,8 @@
     {
         "name": "Lay's",
         "price": 1.59,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Light Paprika",
         "discount": 0
     },
@@ -176,16 +176,16 @@
     {
         "name": "Hansano Weidemilch 0.5l",
         "price": 0.69,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "3,9%",
         "discount": 0
     },
     {
         "name": "Hansano Weidemilch 1l",
         "price": 1.29,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "3,9%",
         "discount": 0
     },
@@ -194,16 +194,16 @@
     {
         "name": "Moskowitsch Kwas",
         "price": 0.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Erfrischungsgetränk. Dovgan",
         "discount": 0
     },
     {
         "name": "Pfand - 0.25",
         "price": 0.25,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Moskowitsch Kwas",
         "discount": 0
     },
@@ -216,8 +216,8 @@
     {
         "name": "K.Bierschinken",
         "price": 0.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
@@ -256,16 +256,16 @@
     {
         "name": "Weih. Joghurt",
         "price": 0.55,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "mild",
         "discount": 0
     },
     {
         "name": "K Bio Sauerrahm Butter",
         "price": 2.29,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
@@ -288,8 +288,8 @@
     {
         "name": "Tomaten",
         "price": 2.49,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "300g",
         "discount": 0
     },
@@ -298,16 +298,16 @@
     {
         "name": "Paprika grün",
         "price": 2.29,
-        "weightAmount":1,
-        "measure":"kg",
+        "weightAmount": 1,
+        "measure": "kg",
         "description": "",
         "discount": 0
     },
     {
         "name": "K. Schoko-Haselnuss",
         "price": 1.79,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
@@ -319,24 +319,24 @@
     {
         "name": "MSC Matjesfilet nord",
         "price": 2.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "KLC Lachsforelle",
         "price": 2.19,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "Gurken",
         "price": 0.69,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
@@ -364,8 +364,8 @@
     {
         "name": "Trauben hell",
         "price": 0.59,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "500g",
         "discount": 0
     },
@@ -405,8 +405,8 @@
     {
         "name": "FFP-2 Masken",
         "price": 0.79,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     "Mineralwasser",
@@ -422,9 +422,9 @@
     {
         "name": "Romatomaten",
         "price": 1.49,
-        "weightAmount":1,
-        "measure":"piece",
-        "description":"500g",
+        "weightAmount": 1,
+        "measure": "piece",
+        "description": "500g",
         "discount": 0
     },
     "Traube",
@@ -443,16 +443,16 @@
     {
         "name": "Tic Tac",
         "price": 1.49,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Orange",
         "discount": 0
     },
     {
         "name": "Milka Löffelei",
         "price": 2.79,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
@@ -473,22 +473,22 @@
     {
         "name": "Hähnchen Geschnetzeltes",
         "price": 2.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     {
         "name": "Edelsalami",
         "price": 1.11,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     {
         "name": "Salami mit Brie-Käse",
         "price": 1.51,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     "Das volle Korn",
@@ -511,8 +511,8 @@
     {
         "name": "Pril",
         "price": 1.25,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Eukalyptus",
         "discount": 0
     },
@@ -524,15 +524,15 @@
     {
         "name": "Kikkoman Teriyaki",
         "price": 4.29,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     {
         "name": "K-Classic Küchenrolle",
         "price": 1.45,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     "Bärenmarke Die frische Milch 3,8%",
@@ -564,22 +564,22 @@
     {
         "name": "Dove Duschgel",
         "price": 1.29,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     {
         "name": "Dove Waschstück",
         "price": 0.65,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     {
         "name": "Palmolive Duschgel",
         "price": 0.95,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     "Spritzbeutel",
@@ -602,8 +602,8 @@
     {
         "name": "Überraschungsei Maxi",
         "price": 3.29,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
@@ -621,24 +621,24 @@
     {
         "name": "Nestle Honey Cheerios",
         "price": 1.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "Nesquik ABC",
         "price": 1.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "Steak sauce",
         "price": 1.19,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
@@ -657,8 +657,8 @@
     {
         "name": "KLC Emmentaler am Stück",
         "price": 2.69,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
@@ -673,16 +673,16 @@
     {
         "name": "Sambal Oelek",
         "price": 1.29,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Bamboo Garden",
         "discount": 0
     },
     {
         "name": "Sambal Tjampoer",
         "price": 1.26,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Bamboo Garden",
         "discount": 0
     },
@@ -726,244 +726,243 @@
     {
         "name": "TS. Pinselset",
         "price": 2.79,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     {
         "name": "CS. Blumenkasten",
         "price": 1.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     {
         "name": "Blumenkasten 40",
         "price": 4.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     {
         "name": "Blumentopf",
         "price": 1.79,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "28cm",
         "discount": 0
     },
     {
         "name": "CS. Blumentopf",
         "price": 0.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     {
         "name": "CS. Blumenschale",
         "price": 0.79,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     {
         "name": "Spice Schüssel",
         "price": 2.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "29cm",
         "discount": 0
     },
     {
         "name": "Sämereien Radies",
         "price": 1.79,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Rundes halbrot-halbweiß",
         "discount": 0
     },
     {
         "name": "Sämereien Sommerblumen",
         "price": 1.49,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Schmücke Garten und Heim",
         "discount": 0
     },
     {
         "name": "Sämereien Monatserdbeeren Rügen",
         "price": 1.75,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Quedlinburger",
         "discount": 0
     },
     {
         "name": "Sämereien Fleischtomate",
         "price": 1.75,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Quedlinburger",
         "discount": 0
     },
     {
         "name": "Plastikuntersetzer",
         "price": 0.59,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "discount": 0
     },
     {
         "name": "CS. Blumenkastenhalter",
         "price": 3.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "2 Stück",
         "discount": 0
     },
     {
         "name": "Mini-Kringelgebäck",
         "price": 1.29,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Mit Mohnsamen 250g. Dovgan",
         "discount": 0
     },
     {
         "name": "Schmunzelhase",
         "price": 1.55,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Milka",
         "discount": 0
     },
     {
         "name": "K Classic Weißwurst",
         "price": 2.29,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "300g",
         "discount": 0
     },
     {
         "name": "Extaler Mineralwasser",
         "price": 0.44,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "Gala Caffe Crema",
         "price": 7.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "Bamboo Garden Instant-Nudeln",
         "price": 1.69,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "Marshmallows Mini",
         "price": 1.49,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "K Classic Spitzen Langkorn Reis, lose",
         "price": 3.79,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "Carters. Root Beer",
         "price": 1.29,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "0.33l",
         "discount": 0
     },
     {
         "name": "Eiweissbrot",
         "price": 1.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "Miradent Ersatz Spitzbürsten I-Prox P",
         "price": 4.53,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "blau",
         "discount": 0
     },
     {
         "name": "",
         "price": 0,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "VIGANTOL 1000 I.E. Vitamin D3 Tabletten",
         "price": 5.99,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "Soldan Tex Schmelz Traubenzucker",
         "price": 0.59,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "Orange 33g",
         "discount": 0
     },
     {
         "name": "",
         "price": 0,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "",
         "price": 0,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "",
         "price": 0,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
         "name": "",
         "price": 0,
-        "weightAmount":1,
-        "measure":"piece",
+        "weightAmount": 1,
+        "measure": "piece",
         "description": "",
         "discount": 0
     }
-    
 ]
