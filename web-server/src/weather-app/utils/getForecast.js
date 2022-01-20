@@ -13,7 +13,7 @@ const getForecast = encodedAddress => {
                 console.log(prop + ': ' + chalk.yellow(geocodeData[prop]));
             });
             console.log('----------------------------------------------');
-
+            console.log('geocodeData ', geocodeData);
             resolve(geocodeData); 
         });
     })

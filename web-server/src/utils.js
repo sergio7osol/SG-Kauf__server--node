@@ -246,7 +246,7 @@ function removeBuy({ date, time }) {
     };
 }
 
-function saveProduct({ date, time, name, price, weightAmount, measure, description, discount }) {
+function saveProduct({ date, time, name, price, weightAmount, measure, description, discount }, toDefault) {
     const filePath = path.join(BUY_DATA_DIR, date + '.json');
     let fileContentsRaw = null;
     let buys = null;
@@ -254,6 +254,8 @@ function saveProduct({ date, time, name, price, weightAmount, measure, descripti
     let existingBuy = null;
     let existingProducts = null;
     let product = null;
+
+    const parsedToDefault = toDefault && JSON.parse(toDefault);
 
     if (!(name && typeof name === 'string')) {
         throw Error(chalk.red(`Product name should be provided and be of a 'string' type. Program stops.`));
@@ -304,17 +306,13 @@ function saveProduct({ date, time, name, price, weightAmount, measure, descripti
                 discount
             };
 
-            addToProductDefaults(product);
+            toDefault && addToProductDefaults(product);
 
-            // check whether there already is this product
             if (find(existingProducts, product)) {
                 throw Error(chalk.red(`Products array already has such a product: ${product.name}. Program stops.`));
             }
-
             existingProducts.push(product); // TODO: improve with validation of every product and add a possibility of choosing array/separate object
-
             resultBuys = JSON.stringify(buys);
-
             fs.writeFileSync(filePath, resultBuys);
 
             // provided values -> green color; 
@@ -781,17 +779,28 @@ function getAllProductDefaults() {
 function addToProductDefaults(productItem) {
     const fileContentsRaw = _getFileContents(PRODUCT_DEFAULTS_FILE);
     const defaults = JSON.parse(fileContentsRaw);
+    const foundDefaultAtIndex = findObjectAndIndex(defaults, productItem);
 
-    const foundDefault = find(defaults, productItem);
-    if (foundDefault) {
-        console.log(chalk.green(`Product: ${chalk.blueBright(productItem.name)} : ${chalk.blueBright(productItem.price)} : ${chalk.blueBright(productItem.weightAmount)} : ${chalk.blueBright(productItem.measure)} : ${chalk.blueBright(productItem.description)} : ${chalk.blueBright(productItem.discount)} already exists in defaults. Continue...`));
-        return false;
-    } else {
-        console.log(chalk.green(`Product: ${chalk.blueBright(productItem.name)} : ${chalk.blueBright(productItem.price)} : ${chalk.blueBright(productItem.weightAmount)} : ${chalk.blueBright(productItem.measure)} : ${chalk.blueBright(productItem.description)} : ${chalk.blueBright(productItem.discount)} does not exist in defaults. Saving...`));        
-        defaults.push(productItem);
-        const newDefaults = JSON.stringify(defaults);
-        fs.writeFileSync(PRODUCT_DEFAULTS_FILE, newDefaults);
-        return true;
+    if (foundDefaultAtIndex) {
+        console.log(chalk.green(`Product - ${chalk.blueBright(foundDefaultAtIndex.item.name)} - ${chalk.blueBright(foundDefaultAtIndex.item.price)} - ${chalk.blueBright(foundDefaultAtIndex.item.weightAmount)} ${chalk.blueBright(foundDefaultAtIndex.item.measure)} - ${chalk.blueBright(foundDefaultAtIndex.item.description)} - ${chalk.blueBright(foundDefaultAtIndex.item.discount)} already exists in defaults and is going to be overwritten.`));
+        defaults.splice(foundDefaultAtIndex.index, 1);
+    }
+    defaults.push(productItem);
+    const newDefaults = JSON.stringify(defaults);
+    fs.writeFileSync(PRODUCT_DEFAULTS_FILE, newDefaults);
+    console.log(chalk.green(`Product - ${chalk.blueBright(productItem.name)} - ${chalk.blueBright(productItem.price)} - ${chalk.blueBright(productItem.weightAmount)} ${chalk.blueBright(productItem.measure)} - ${chalk.blueBright(productItem.description)} - ${chalk.blueBright(productItem.discount)} is added to defaults.`));
+    return true;
+
+    function findObjectAndIndex(list, object) {
+        let result = false;
+        list.find((item, index) => {
+            const isNeededObject = item.name === object.name;
+            if (isNeededObject) {
+                result = { item, index };
+                return true;
+            }
+        });
+        return result;
     }
 }
 function _getFileContents(fileUrl) {

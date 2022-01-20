@@ -152,6 +152,8 @@ app.get('/save-product', ({url, query}, res) => {
     let discountLastLetter = null;
     let discountNumber = null;
 
+    console.log('url: ', url);
+
     // normalize price and weight to 'number' type:
     query.price = Number(query.price);
     query.weightAmount = Number(query.weightAmount);
@@ -173,7 +175,7 @@ app.get('/save-product', ({url, query}, res) => {
         }
     }
 
-    let { date, time, name, price, weightAmount, measure, description, discount } = query;
+    let { date, time, name, price, weightAmount, measure, description, discount, todefault } = query;
 
     console.log(chalk.yellow(`${url}: request`));
 
@@ -183,8 +185,9 @@ app.get('/save-product', ({url, query}, res) => {
     console.log('price: ', price, typeof price);
     console.log('weightAmount: ', weightAmount, typeof weightAmount);
     console.log('measure: ', measure);
-    console.log('description: ', description);
+    console.log('description: ', !description && '');
     console.log('discount: ', discount);
+    console.log('add product to default: ', todefault ? todefault : false);
 
     if (!(date && time && name && price && weightAmount && measure && (discount || discount === 0))) {
         statusMsg = 'Date, time and product details must be provided.';
@@ -196,26 +199,9 @@ app.get('/save-product', ({url, query}, res) => {
         });
     }
 
-    responseResult = saveProduct(query);
+    responseResult = saveProduct(query, todefault);
 
     return res.send(responseResult);    
-
-    // currency:
-        // "EU"  -> default 
-        // describe: 'Currency to pay for the buy',
-        // type: 'string' // enum
-    // country: {
-        // "Germany"  -> default 
-        // describe: 'Country of the shop',
-        // type: 'string' // enum
-    // 'pay method': {
-        // "EC card" -> default 
-        // describe: 'Pay method used for the buy',
-        // type: 'string' // enum
-    // 'shop\'s name': {
-        // "REWE" -> default,
-        // describe: 'Name of the shop, where the buy of products happened',
-        // type: 'string' // enum
 });
 // Remove product from the buy:
 app.get('/remove-product', ({url, query}, res) => {

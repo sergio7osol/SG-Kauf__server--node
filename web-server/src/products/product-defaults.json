@@ -902,24 +902,16 @@
         "discount": 0
     },
     {
-        "name": "Miradent Ersatz Spitzbürsten I-Prox P",
-        "price": 4.53,
-        "weightAmount": 1,
-        "measure": "piece",
-        "description": "blau",
-        "discount": 0
-    },
-    {
-        "name": "",
-        "price": 0,
+        "name": "VIGANTOL 1000 I.E. Vitamin D3 Tabletten",
+        "price": 5.99,
         "weightAmount": 1,
         "measure": "piece",
         "description": "",
         "discount": 0
     },
     {
-        "name": "VIGANTOL 1000 I.E. Vitamin D3 Tabletten",
-        "price": 5.99,
+        "name": "",
+        "price": 0,
         "weightAmount": 1,
         "measure": "piece",
         "description": "",
@@ -930,39 +922,15 @@
         "price": 0.59,
         "weightAmount": 1,
         "measure": "piece",
-        "description": "Orange 33g",
+        "description": "Orange 34g EE",
         "discount": 0
     },
     {
-        "name": "",
-        "price": 0,
+        "name": "Miradent Ersatz Spitzbürsten I-Prox P",
+        "price": 4.53,
         "weightAmount": 1,
         "measure": "piece",
-        "description": "",
-        "discount": 0
-    },
-    {
-        "name": "",
-        "price": 0,
-        "weightAmount": 1,
-        "measure": "piece",
-        "description": "",
-        "discount": 0
-    },
-    {
-        "name": "",
-        "price": 0,
-        "weightAmount": 1,
-        "measure": "piece",
-        "description": "",
-        "discount": 0
-    },
-    {
-        "name": "",
-        "price": 0,
-        "weightAmount": 1,
-        "measure": "piece",
-        "description": "",
+        "description": "blau",
         "discount": 0
     }
 ]
