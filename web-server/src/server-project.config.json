@@ -1,5 +1,6 @@
 {
     "buyDataDir": "data",
     "productNamesFile": "src/products/product-names.json",
+    "productDescriptionFile": "src/products/product-descriptions.json",
     "productDefaultsFile": "src/products/product-defaults.json"
 }

@@ -9,6 +9,7 @@ const { datesToNgDates } = require('./ngConvert');
 
 const BUY_DATA_DIR = path.join(__dirname, '..', serverConfigJSON.buyDataDir);
 const PRODUCT_NAMES_FILE = path.join(__dirname, '..', serverConfigJSON.productNamesFile);
+const PRODUCT_DESCRIPTIONS_FILE = path.join(__dirname, '..', serverConfigJSON.productDescriptionFile);
 const PRODUCT_DEFAULTS_FILE = path.join(__dirname, '..', serverConfigJSON.productDefaultsFile);
 
 function saveBuy(buyOptions) {
@@ -252,8 +253,6 @@ function saveProduct({ date, time, name, price, weightAmount, measure, descripti
     let buys = null;
     let resultBuys = null;
     let existingBuy = null;
-    let existingProducts = null;
-    let product = null;
 
     const parsedToDefault = toDefault && JSON.parse(toDefault);
 
@@ -288,16 +287,14 @@ function saveProduct({ date, time, name, price, weightAmount, measure, descripti
             if (props.time === time) {
                 return true;
             }
-        });
+        }); 
 
         if (!existingBuy) {
             console.warn(chalk.hex("#ee7733")(`The buy of ${chalk.hex("#bb99aa")(date)} at ${chalk.hex("#bb99aa")(time)} is not found. Return.`));
             return false;
         } else {
-            existingProducts = existingBuy.products = existingBuy.products || [];
-
-            // build a product consisting of corresponding buy values
-            product = {
+            const existingProducts = existingBuy.products = existingBuy.products || [];
+            const product = {
                 name,
                 price,
                 weightAmount,
@@ -306,16 +303,17 @@ function saveProduct({ date, time, name, price, weightAmount, measure, descripti
                 discount
             };
 
-            toDefault && addToProductDefaults(product);
-
             if (find(existingProducts, product)) {
                 throw Error(chalk.red(`Products array already has such a product: ${product.name}. Program stops.`));
             }
+
+            _addToDescriptionDefaults(description);
+            toDefault && addToProductDefaults(product);
+
             existingProducts.push(product); // TODO: improve with validation of every product and add a possibility of choosing array/separate object
             resultBuys = JSON.stringify(buys);
             fs.writeFileSync(filePath, resultBuys);
 
-            // provided values -> green color; 
             console.log('Product added: ', chalk.green(`The the product - ${product.name} - was successfully added to the buy of ${date} at ${time}.`));
 
             return existingProducts;
@@ -762,6 +760,20 @@ function getAllProductNames() { // TODO: implement time range
 
     return fileContentsRaw;
 }
+function getAllProductDescriptions() { // TODO: create one function with parameters from similar ones like this
+    let fileContentsRaw = null;
+
+    try {
+        fileContentsRaw = fs.readFileSync(PRODUCT_DESCRIPTIONS_FILE, 'utf8');
+    } catch (err) {
+        console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
+        return;
+    }
+
+    console.log(chalk.green('All product descriptions were loaded.'));
+
+    return fileContentsRaw;
+}
 function getAllProductDefaults() {
     let fileContentsRaw = null;
 
@@ -803,6 +815,21 @@ function addToProductDefaults(productItem) {
         return result;
     }
 }
+function _addToDescriptionDefaults(newDescription) {
+    const fileContentsRaw = _getFileContents(PRODUCT_DESCRIPTIONS_FILE);
+    const descriptions = JSON.parse(fileContentsRaw);
+    const foundDescription = descriptions.find(descriptionItem => descriptionItem === newDescription );
+
+    if (!foundDescription) {
+        console.log(chalk.green(`Description - ${chalk.blueBright('"' + foundDescription + '"')} - already exists. Skipping.`));
+        return false;
+    }
+    descriptions.push(newDescription);
+    const newDescriptions = JSON.stringify(descriptions);
+    fs.writeFileSync(PRODUCT_DESCRIPTIONS_FILE, newDescriptions);
+    console.log(chalk.green('New Description is added to default descriptions.'));
+    return true;
+}
 function _getFileContents(fileUrl) {
     try {
         return fileContentsRaw = fs.readFileSync(fileUrl, 'utf8');
@@ -823,6 +850,6 @@ module.exports = {
     calculateRangeSum,
     calculateWholeSum,
     getAllProductNames,
-    getAllProductDefaults,
-    addToProductDefaults
+    getAllProductDescriptions,
+    getAllProductDefaults
 };

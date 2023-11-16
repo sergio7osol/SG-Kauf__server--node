@@ -4,11 +4,11 @@ const hbs = require('hbs');
 const chalk = require('chalk');
 const cors = require('cors');
 const serverConfigJSON = require('./server-project.config.json');
-const { saveBuy, removeBuy, saveProduct, removeProduct, readDate, listAllDates, getShoppingDates, calculateRangeSum, calculateWholeSum, getAllProductNames, getAllProductDefaults, getIndexProductData } = require('./utils');
+const { saveBuy, removeBuy, saveProduct, removeProduct, getProductTimeline, readDate, listAllDates, getShoppingDates, calculateRangeSum, calculateWholeSum, getAllProductNames, getAllProductDescriptions, getAllProductDefaults, getIndexProductData } = require('./utils');
 const { getForecast } = require('./weather-app/utils/getForecast');
 
 const port = process.env.PORT || 3000;
-const whitelist = ['http://localhost:8080', 'http://localhost:3000', 'http://localhost:4200', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
+const whitelist = ['http://localhost:8080', 'http://localhost:3000', 'http://localhost:3001', 'http://localhost:4200', 'http://localhost:8000', 'http://localhost:3030', 'http://10.0.2.15:8080', 'http://10.0.2.15:8000', 'http://10.0.2.15:3030'];
 
 // Paths for express config
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
@@ -154,13 +154,12 @@ app.get('/save-product', ({url, query}, res) => {
 
     console.log('url: ', url);
 
-    // normalize price and weight to 'number' type:
     query.price = Number(query.price);
     query.weightAmount = Number(query.weightAmount);
 
     // query.discount = Number(query.discount); // TODO add % parsing
     if (!query.discount) {
-        query.discount = 0;
+        query.discount = 0; 
     } else {
         discountLastLetter = query.discount.slice(-1);
 
@@ -249,6 +248,25 @@ app.get('/remove-product', ({url, query}, res) => {
 
     return res.send(responseResult);
 });
+app.get('/product-timeline', ({url, query}, res) => {
+    const { name, measure, shopName } = query;
+    
+    debugger
+
+    console.log(chalk.yellow(`${url}: request`));
+
+    if (!(name && measure && shopName)) {
+        console.warn(chalk.red('Product, measure and shop name must be provided.'));
+
+        return res.send({
+            error: `${url}: ${statusMsg}`
+        });
+    }
+
+    const responseResult = getProductTimeline(query);
+
+    return res.send(responseResult);
+});
 // List all dates:
 app.get('/list-dates', ({url}, res) => {
     console.log('111');
@@ -268,14 +286,18 @@ app.get('/get-shopping-dates', ({url}, res) => {
 
     return res.send(responseResult);
 });
-
-// Get all product names:
 app.get('/get-product-names', ({url}, res) => {
     let responseResult = null;
     
     console.log(chalk.yellow(`${url}: request`));
 
     responseResult = getAllProductNames();
+
+    return res.send(responseResult);
+});
+app.get('/get-product-descriptions', ({url}, res) => {
+    console.log(chalk.yellow(`${url}: request`));
+    const responseResult = getAllProductDescriptions();
 
     return res.send(responseResult);
 });
