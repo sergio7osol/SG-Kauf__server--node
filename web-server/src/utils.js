@@ -33,8 +33,6 @@ function saveBuy(buyOptions) {
     console.log('Date: ', chalk.green(date));
     console.log('Time: ', chalk.green(time));
 
-    debugger
-
     if (currency) {
         console.log('Currency: ', chalk.green(currency));
     } else {
@@ -256,6 +254,9 @@ function saveProduct({ date, time, name, price, weightAmount, measure, descripti
 
     const parsedToDefault = toDefault && JSON.parse(toDefault);
 
+    // console.log('parsedToDefault ', parsedToDefault);
+    // debugger
+
     if (!(name && typeof name === 'string')) {
         throw Error(chalk.red(`Product name should be provided and be of a 'string' type. Program stops.`));
     }
@@ -441,6 +442,73 @@ function removeProduct({ date, time, name, price, weightAmount, measure, descrip
         }
     } else {
         console.warn(chalk.hex("#ee7733")(`No buy entries found. End of function.`));
+    }
+}
+
+function getProductTimeline({ name, measure, shopName }) {
+    // console.warn(chalk.hex("#ee7733")(`The buy of ${chalk.hex("#bb99aa")(date)} at ${chalk.hex("#bb99aa")(time)} is not found. Return.`));
+
+    if (!(name && typeof name === 'string')) {
+        throw Error(chalk.red(`Product name should be provided and be of a 'string' type. Program stops.`));
+    }
+    if (!(measure === 'kg' || measure === 'piece')) {
+        throw Error(chalk.red(`Product measure should be provided and be either 'kg' or 'piece' value. Program stops.`));
+    }
+    if (!(shopName && typeof shopName === 'string')) {
+        throw Error(chalk.red(`Shop name should be provided and be of a 'string' type. Program stops.`));
+    }
+
+    try {
+        const dateFileNames = fs.readdirSync(BUY_DATA_DIR);
+        const resultGraphList = dateFileNames.reduce((accDates, fileName) => {
+            const date = fileName.slice(0, -5); // TODO: improve
+            const filePath = path.join(BUY_DATA_DIR, fileName);
+            const buyObj = {};
+            let fileContentsRaw = null;
+            let buys = null;
+
+            try {
+                fileContentsRaw = fs.readFileSync(filePath, 'utf8');
+            } catch (err) {
+                console.warn(chalk.hex("#ee7733")('No such file in the folder. Return.'));
+                return;
+            }
+
+            buys = JSON.parse(fileContentsRaw);
+
+            const resultBuyList = buys.reduce((accBuys, buy) => {
+                if (buy.shopName !== shopName) {
+                    return accBuys;
+                }
+
+                const resultProductList = buy.products?.reduce((accProducts, product) => {
+                    if (!(product.name === name && product.measure === measure)) {
+                        return accProducts;
+                    }
+
+                    return [...accProducts, {date, ...product}];
+                }, []) || [];
+
+                return [...accBuys, ...resultProductList];
+            }, []);
+
+            return [...accDates, ...resultBuyList];
+        }, []);
+
+        console.log(chalk.green(`Counted ${resultGraphList.length} products from `, chalk.hex('#ee7733')(dateFileNames.length), ' dates.'));
+
+        return resultGraphList;
+        // return {
+        //  success: true,
+        //  message: `The the product - ${removedProduct.name} - were successfully removed from the buy of ${date} at ${time}.`
+        // };
+    } catch (err) {
+        console.warn(chalk.hex("#ee7733")(`Not possible to accumulate data for ${name}. Return.`));
+        console.error('ERROR: ', err);
+        return {
+            success: false,
+            error: `${url}: Not possible to accumulate data for ${name}. Return.`
+        };
     }
 }
 
@@ -816,11 +884,14 @@ function addToProductDefaults(productItem) {
     }
 }
 function _addToDescriptionDefaults(newDescription) {
+    if (newDescription === undefined || newDescription === '') return false;
     const fileContentsRaw = _getFileContents(PRODUCT_DESCRIPTIONS_FILE);
     const descriptions = JSON.parse(fileContentsRaw);
+    console.log('descriptions > ', descriptions, typeof descriptions);
     const foundDescription = descriptions.find(descriptionItem => descriptionItem === newDescription );
+    console.log('foundDescription > ', foundDescription, typeof foundDescription);
 
-    if (!foundDescription) {
+    if (foundDescription) {
         console.log(chalk.green(`Description - ${chalk.blueBright('"' + foundDescription + '"')} - already exists. Skipping.`));
         return false;
     }
@@ -844,6 +915,7 @@ module.exports = {
     removeBuy,
     saveProduct,
     removeProduct,
+    getProductTimeline,
     readDate,
     listAllDates,
     getShoppingDates,
